@@ -36,7 +36,7 @@ namespace Car_Rental
 
             if (id==null)
             {
- user user= new user();
+            user user= new user();
             user.name = tb_nama.Text;
             user.username = tb_username.Text;
             user.password = getSha(tb_password.Text);
@@ -44,21 +44,22 @@ namespace Car_Rental
             context.users.InsertOnSubmit(user);
             context.SubmitChanges();
             MessageBox.Show(null, "Berhasil Save data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            clearForm();
-             new Admin_Management_User().Show();
-                this.Close();
+            clearForm();             
             }
             else
             {
                 var data = context.users.Where(u => u.user_id == int.Parse(id)).FirstOrDefault();
                 data.name= tb_nama.Text;    
                 data.username = tb_username.Text;
-                data.password= getSha(tb_password.Text);
+                if (tb_password.Text!=null)
+                {
+                    data.password = getSha(tb_password.Text);
+
+                }                
                 data.level= level;
                 context.SubmitChanges();
                 MessageBox.Show(null, "Berhasil Update data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearForm();
-                new Admin_Management_User().Show();
                 this.Close();
             }
         }
@@ -80,7 +81,7 @@ namespace Car_Rental
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void rd_admin_CheckedChanged(object sender, EventArgs e)
@@ -130,6 +131,33 @@ namespace Car_Rental
             if (rd_karyawan.Checked == true)
             {
                 rd_admin.Checked = false;
+            }
+            btn_reset.Enabled = false;
+            lb_informasi.Visible = false;
+            if (id!=null)
+            {
+                btn_reset.Enabled = true;
+                lb_informasi.Visible = true;
+            }
+        }        
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            if (id!="")
+            {
+                DialogResult dialog= MessageBox.Show(null, "Apakah anda yakin ingin mereset password user ini?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialog==DialogResult.Yes)
+                {                    
+                var data =context.users.Where(u=>u.user_id==int.Parse(id)).FirstOrDefault();
+                data.password = getSha("1234");
+                context.SubmitChanges();
+                MessageBox.Show(null, "Berhasil mereset password", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show(null, "Belum ada data yang di pilih", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
         }
     }

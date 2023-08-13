@@ -40,6 +40,8 @@
             this.rd_karyawan = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lb_informasi = new System.Windows.Forms.Label();
+            this.btn_reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -108,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(36, 207);
+            this.label5.Location = new System.Drawing.Point(36, 254);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 7;
@@ -117,7 +119,7 @@
             // rd_admin
             // 
             this.rd_admin.AutoSize = true;
-            this.rd_admin.Location = new System.Drawing.Point(170, 207);
+            this.rd_admin.Location = new System.Drawing.Point(170, 254);
             this.rd_admin.Name = "rd_admin";
             this.rd_admin.Size = new System.Drawing.Size(85, 17);
             this.rd_admin.TabIndex = 8;
@@ -129,7 +131,7 @@
             // rd_karyawan
             // 
             this.rd_karyawan.AutoSize = true;
-            this.rd_karyawan.Location = new System.Drawing.Point(266, 207);
+            this.rd_karyawan.Location = new System.Drawing.Point(266, 254);
             this.rd_karyawan.Name = "rd_karyawan";
             this.rd_karyawan.Size = new System.Drawing.Size(72, 17);
             this.rd_karyawan.TabIndex = 9;
@@ -140,7 +142,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(97, 245);
+            this.button1.Location = new System.Drawing.Point(167, 292);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 29);
             this.button1.TabIndex = 10;
@@ -150,7 +152,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(187, 245);
+            this.button2.Location = new System.Drawing.Point(257, 292);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 29);
             this.button2.TabIndex = 11;
@@ -158,11 +160,33 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // lb_informasi
+            // 
+            this.lb_informasi.AutoSize = true;
+            this.lb_informasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_informasi.Location = new System.Drawing.Point(83, 207);
+            this.lb_informasi.Name = "lb_informasi";
+            this.lb_informasi.Size = new System.Drawing.Size(218, 32);
+            this.lb_informasi.TabIndex = 12;
+            this.lb_informasi.Text = "jika tadak ingin merubah password \r\nsilahkan kosongkan form password";
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Location = new System.Drawing.Point(35, 292);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(113, 29);
+            this.btn_reset.TabIndex = 13;
+            this.btn_reset.Text = "Reset Password";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
             // Admin_Add_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 288);
+            this.ClientSize = new System.Drawing.Size(379, 333);
+            this.Controls.Add(this.btn_reset);
+            this.Controls.Add(this.lb_informasi);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rd_karyawan);
@@ -197,5 +221,7 @@
         private System.Windows.Forms.RadioButton rd_karyawan;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lb_informasi;
+        private System.Windows.Forms.Button btn_reset;
     }
 }

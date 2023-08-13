@@ -30,16 +30,17 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_search = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cb_orderList = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column5});
+            this.Column5,
+            this.Column7});
             this.dataGridView1.Location = new System.Drawing.Point(12, 83);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(735, 398);
@@ -70,12 +72,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Filter";
             // 
-            // textBox1
+            // tb_search
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb_search.Location = new System.Drawing.Point(77, 27);
+            this.tb_search.Name = "tb_search";
+            this.tb_search.Size = new System.Drawing.Size(194, 20);
+            this.tb_search.TabIndex = 2;
+            this.tb_search.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -95,15 +98,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Sort";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(507, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 27);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Filter";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Column4
             // 
@@ -137,15 +132,35 @@
             this.Column5.Text = "Edit";
             this.Column5.UseColumnTextForButtonValue = true;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Aksi";
+            this.Column7.Name = "Column7";
+            this.Column7.Text = "Delete";
+            this.Column7.UseColumnTextForButtonValue = true;
+            // 
+            // cb_orderList
+            // 
+            this.cb_orderList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_orderList.FormattingEnabled = true;
+            this.cb_orderList.Items.AddRange(new object[] {
+            "Ascending",
+            "Descending"});
+            this.cb_orderList.Location = new System.Drawing.Point(452, 29);
+            this.cb_orderList.Name = "cb_orderList";
+            this.cb_orderList.Size = new System.Drawing.Size(130, 21);
+            this.cb_orderList.TabIndex = 5;
+            this.cb_orderList.SelectedIndexChanged += new System.EventHandler(this.cb_orderList_SelectedIndexChanged);
+            // 
             // Admin_Management_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 493);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.cb_orderList);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_search);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Admin_Management_User";
@@ -161,15 +176,16 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column7;
+        private System.Windows.Forms.ComboBox cb_orderList;
     }
 }
