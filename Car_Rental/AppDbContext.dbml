@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Car_Rent_System" Class="AppDbContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-FDMC7DB;Initial Catalog=Car_Rent_System;Integrated Security=True" SettingsObjectName="Car_Rental.Properties.Settings" SettingsPropertyName="Car_Rent_SystemConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cars" Member="cars">
+    <Type Name="car">
+      <Column Name="car_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="brand" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="plate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="year" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rental_price" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="car_seat_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="car_car" Member="cars" ThisKey="car_id" OtherKey="car_seat_id" Type="car" />
+      <Association Name="car_transaction" Member="transactions" ThisKey="car_id" OtherKey="car_id" Type="transaction" />
+      <Association Name="car_car" Member="car1" ThisKey="car_seat_id" OtherKey="car_id" Type="car" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_transaction" Member="transactions" ThisKey="user_id" OtherKey="user_id" Type="transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.carseat" Member="carseats">
+    <Type Name="carseat">
+      <Column Name="car_seat_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customer" Member="customers">
+    <Type Name="customer">
+      <Column Name="customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="identity_number" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="identity_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="customer_transaction" Member="transactions" ThisKey="customer_id" OtherKey="customer_id" Type="transaction" />
+      <Association Name="identity_type_customer" Member="identity_type" ThisKey="identity_type_id" OtherKey="identity_type_id" Type="identity_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.identity_type" Member="identity_types">
+    <Type Name="identity_type">
+      <Column Name="identity_type_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="identity_type_customer" Member="customers" ThisKey="identity_type_id" OtherKey="identity_type_id" Type="customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.transactions" Member="transactions">
+    <Type Name="transaction">
+      <Column Name="transaction_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customer_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="car_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rent_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="return_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="total_price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="car_transaction" Member="car" ThisKey="car_id" OtherKey="car_id" Type="car" IsForeignKey="true" />
+      <Association Name="customer_transaction" Member="customer" ThisKey="customer_id" OtherKey="customer_id" Type="customer" IsForeignKey="true" />
+      <Association Name="user_transaction" Member="user" ThisKey="user_id" OtherKey="user_id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
