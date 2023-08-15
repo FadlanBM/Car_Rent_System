@@ -80,6 +80,12 @@
     <Compile Include="Admin_dashboard.Designer.cs">
       <DependentUpon>Admin_dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Management_Car.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Management_Car.Designer.cs">
+      <DependentUpon>Admin_Management_Car.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Management_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_dashboard.resx">
       <DependentUpon>Admin_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Management_Car.resx">
+      <DependentUpon>Admin_Management_Car.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_User.resx">
       <DependentUpon>Admin_Management_User.cs</DependentUpon>

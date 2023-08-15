@@ -21,8 +21,15 @@ namespace Car_Rental
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var form = new Admin_Add_User();
+            var form = new Admin_Add_User(this.MdiParent);
             form.StartPosition = FormStartPosition.CenterScreen;
+
+            form.FormClosing += (object closesender, FormClosingEventArgs ea) =>
+            {
+                if (form.DialogResult == DialogResult.OK)
+                    LoadData();             
+            };
+
             form.Show();
         }
 
@@ -62,10 +69,16 @@ namespace Car_Rental
             var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             if (e.ColumnIndex==5)
             {
-                var form=new Admin_Add_User();
-                form.StartPosition = FormStartPosition.CenterParent;
-                form.id = id;
-                form.Show();
+                var form1=new Admin_Add_User(this.MdiParent);
+                form1.StartPosition = FormStartPosition.CenterParent;
+                form1.id = id;
+                form1.FormClosing += (object closeseder1, FormClosingEventArgs aw) =>
+                {
+                    if (form1.DialogResult == DialogResult.OK)                    
+                        LoadData();
+                    
+                };
+                form1.Show();
             }
             if (e.ColumnIndex==6)
             {
@@ -99,7 +112,7 @@ namespace Car_Rental
 
             if (tb_search.Text!="")
             {
-                data = data.Where(u => u.name.Contains(tb_search.Text)).ToList();
+                data = data.Where(u => u.name.Contains(tb_search.Text)|u.username.Contains(tb_search.Text)|u.level.Contains(tb_search.Text)).ToList();
             }
             foreach (var item in data)
             {

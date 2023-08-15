@@ -168,7 +168,8 @@
             this.lb_informasi.Name = "lb_informasi";
             this.lb_informasi.Size = new System.Drawing.Size(218, 32);
             this.lb_informasi.TabIndex = 12;
-            this.lb_informasi.Text = "jika tadak ingin merubah password \r\nsilahkan kosongkan form password";
+            this.lb_informasi.Text = "jika tidak ingin merubah password \r\nsilahkan kosongkan form password";
+            this.lb_informasi.Click += new System.EventHandler(this.lb_informasi_Click);
             // 
             // btn_reset
             // 

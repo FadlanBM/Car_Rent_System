@@ -33,5 +33,16 @@ namespace Car_Rental.Properties {
                 return ((string)(this["Car_Rent_SystemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8UJEI4N\\MSSQLSERVER01;Initial Catalog=Car_Rent_System;Integra" +
+            "ted Security=True")]
+        public string Car_Rent_SystemConnectionString1 {
+            get {
+                return ((string)(this["Car_Rent_SystemConnectionString1"]));
+            }
+        }
     }
 }

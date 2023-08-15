@@ -47,6 +47,7 @@
             // 
             // ribbon1
             // 
+            this.ribbon1.CaptionBarVisible = false;
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
             this.ribbon1.Minimized = false;
@@ -186,6 +187,7 @@
             this.KeyPreview = true;
             this.Name = "Admin_dashboard";
             this.Text = "Admin_dashboard";
+            this.Load += new System.EventHandler(this.Admin_dashboard_Load);
             this.ResumeLayout(false);
 
         }

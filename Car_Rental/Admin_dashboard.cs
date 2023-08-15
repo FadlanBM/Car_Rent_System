@@ -29,5 +29,10 @@ namespace Car_Rental
             managementUser.StartPosition = FormStartPosition.CenterScreen;
             managementUser.Show();
         }
+
+        private void Admin_dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

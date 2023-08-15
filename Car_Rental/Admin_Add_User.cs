@@ -16,10 +16,11 @@ namespace Car_Rental
         public string id { get; set; }
         AppDbContextDataContext context;
         private int level;
-        public Admin_Add_User()
+        public Admin_Add_User(Form mdi)
         {
             context = new AppDbContextDataContext();
             InitializeComponent();
+            this.MdiParent= mdi;    
         }
         private void clearForm() {
             tb_nama.Text = "";
@@ -44,7 +45,9 @@ namespace Car_Rental
             context.users.InsertOnSubmit(user);
             context.SubmitChanges();
             MessageBox.Show(null, "Berhasil Save data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            clearForm();             
+            clearForm();
+                DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
@@ -60,6 +63,7 @@ namespace Car_Rental
                 context.SubmitChanges();
                 MessageBox.Show(null, "Berhasil Update data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearForm();
+                DialogResult= DialogResult.OK;
                 this.Close();
             }
         }
@@ -159,6 +163,11 @@ namespace Car_Rental
                 MessageBox.Show(null, "Belum ada data yang di pilih", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void lb_informasi_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
