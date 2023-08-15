@@ -51,7 +51,7 @@ namespace Car_Rental
     #endregion
 		
 		public AppDbContextDataContext() : 
-				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString1, mappingSource)
+				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -143,17 +143,13 @@ namespace Car_Rental
 		
 		private string _color;
 		
-		private System.DateTime _year;
+		private System.Nullable<System.DateTime> _year;
 		
-		private int _status;
+		private System.Nullable<int> _status;
 		
 		private string _rental_price;
 		
-		private int _car_seet_id;
-		
-		private EntitySet<transaction> _transactions;
-		
-		private EntityRef<carseat> _carseat;
+		private System.Nullable<int> _car_seat_id;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -167,20 +163,18 @@ namespace Car_Rental
     partial void OnplateChanged();
     partial void OncolorChanging(string value);
     partial void OncolorChanged();
-    partial void OnyearChanging(System.DateTime value);
+    partial void OnyearChanging(System.Nullable<System.DateTime> value);
     partial void OnyearChanged();
-    partial void OnstatusChanging(int value);
+    partial void OnstatusChanging(System.Nullable<int> value);
     partial void OnstatusChanged();
     partial void Onrental_priceChanging(string value);
     partial void Onrental_priceChanged();
-    partial void Oncar_seet_idChanging(int value);
-    partial void Oncar_seet_idChanged();
+    partial void Oncar_seat_idChanging(System.Nullable<int> value);
+    partial void Oncar_seat_idChanged();
     #endregion
 		
 		public car()
 		{
-			this._transactions = new EntitySet<transaction>(new Action<transaction>(this.attach_transactions), new Action<transaction>(this.detach_transactions));
-			this._carseat = default(EntityRef<carseat>);
 			OnCreated();
 		}
 		
@@ -195,10 +189,6 @@ namespace Car_Rental
 			{
 				if ((this._car_id != value))
 				{
-					if (this._carseat.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.Oncar_idChanging(value);
 					this.SendPropertyChanging();
 					this._car_id = value;
@@ -208,7 +198,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_brand", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_brand", DbType="VarChar(50)")]
 		public string brand
 		{
 			get
@@ -228,7 +218,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plate", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plate", DbType="VarChar(50)")]
 		public string plate
 		{
 			get
@@ -248,7 +238,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_color", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_color", DbType="VarChar(50)")]
 		public string color
 		{
 			get
@@ -268,8 +258,8 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_year", DbType="Date NOT NULL")]
-		public System.DateTime year
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_year", DbType="Date")]
+		public System.Nullable<System.DateTime> year
 		{
 			get
 			{
@@ -288,8 +278,8 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
-		public int status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int")]
+		public System.Nullable<int> status
 		{
 			get
 			{
@@ -308,7 +298,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rental_price", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rental_price", DbType="VarChar(50)")]
 		public string rental_price
 		{
 			get
@@ -328,69 +318,22 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_car_seet_id", DbType="Int NOT NULL")]
-		public int car_seet_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_car_seat_id", DbType="Int")]
+		public System.Nullable<int> car_seat_id
 		{
 			get
 			{
-				return this._car_seet_id;
+				return this._car_seat_id;
 			}
 			set
 			{
-				if ((this._car_seet_id != value))
+				if ((this._car_seat_id != value))
 				{
-					this.Oncar_seet_idChanging(value);
+					this.Oncar_seat_idChanging(value);
 					this.SendPropertyChanging();
-					this._car_seet_id = value;
-					this.SendPropertyChanged("car_seet_id");
-					this.Oncar_seet_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="car_transaction", Storage="_transactions", ThisKey="car_id", OtherKey="car_id")]
-		public EntitySet<transaction> transactions
-		{
-			get
-			{
-				return this._transactions;
-			}
-			set
-			{
-				this._transactions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="carseat_car", Storage="_carseat", ThisKey="car_id", OtherKey="car_seat_id", IsForeignKey=true)]
-		public carseat carseat
-		{
-			get
-			{
-				return this._carseat.Entity;
-			}
-			set
-			{
-				carseat previousValue = this._carseat.Entity;
-				if (((previousValue != value) 
-							|| (this._carseat.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._carseat.Entity = null;
-						previousValue.car = null;
-					}
-					this._carseat.Entity = value;
-					if ((value != null))
-					{
-						value.car = this;
-						this._car_id = value.car_seat_id;
-					}
-					else
-					{
-						this._car_id = default(int);
-					}
-					this.SendPropertyChanged("carseat");
+					this._car_seat_id = value;
+					this.SendPropertyChanged("car_seat_id");
+					this.Oncar_seat_idChanged();
 				}
 			}
 		}
@@ -413,18 +356,6 @@ namespace Car_Rental
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_transactions(transaction entity)
-		{
-			this.SendPropertyChanging();
-			entity.car = this;
-		}
-		
-		private void detach_transactions(transaction entity)
-		{
-			this.SendPropertyChanging();
-			entity.car = null;
 		}
 	}
 	
@@ -488,7 +419,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -624,8 +555,6 @@ namespace Car_Rental
 		
 		private string _name;
 		
-		private EntityRef<car> _car;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -638,7 +567,6 @@ namespace Car_Rental
 		
 		public carseat()
 		{
-			this._car = default(EntityRef<car>);
 			OnCreated();
 		}
 		
@@ -682,35 +610,6 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="carseat_car", Storage="_car", ThisKey="car_seat_id", OtherKey="car_id", IsUnique=true, IsForeignKey=false)]
-		public car car
-		{
-			get
-			{
-				return this._car.Entity;
-			}
-			set
-			{
-				car previousValue = this._car.Entity;
-				if (((previousValue != value) 
-							|| (this._car.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._car.Entity = null;
-						previousValue.carseat = null;
-					}
-					this._car.Entity = value;
-					if ((value != null))
-					{
-						value.carseat = this;
-					}
-					this.SendPropertyChanged("car");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -750,7 +649,9 @@ namespace Car_Rental
 		
 		private string _phone_number;
 		
-		private EntityRef<transaction> _transaction;
+		private EntitySet<transaction> _transactions;
+		
+		private EntityRef<identity_type> _identity_type;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -772,7 +673,8 @@ namespace Car_Rental
 		
 		public customer()
 		{
-			this._transaction = default(EntityRef<transaction>);
+			this._transactions = new EntitySet<transaction>(new Action<transaction>(this.attach_transactions), new Action<transaction>(this.detach_transactions));
+			this._identity_type = default(EntityRef<identity_type>);
 			OnCreated();
 		}
 		
@@ -827,6 +729,10 @@ namespace Car_Rental
 			{
 				if ((this._identity_type_id != value))
 				{
+					if (this._identity_type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onidentity_type_idChanging(value);
 					this.SendPropertyChanging();
 					this._identity_type_id = value;
@@ -876,7 +782,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string phone_number
 		{
 			get
@@ -896,31 +802,49 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="customer_transaction", Storage="_transaction", ThisKey="customer_id", OtherKey="transaction_id", IsUnique=true, IsForeignKey=false)]
-		public transaction transaction
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="customer_transaction", Storage="_transactions", ThisKey="customer_id", OtherKey="customer_id")]
+		public EntitySet<transaction> transactions
 		{
 			get
 			{
-				return this._transaction.Entity;
+				return this._transactions;
 			}
 			set
 			{
-				transaction previousValue = this._transaction.Entity;
+				this._transactions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_type_customer", Storage="_identity_type", ThisKey="identity_type_id", OtherKey="identity_type_id", IsForeignKey=true)]
+		public identity_type identity_type
+		{
+			get
+			{
+				return this._identity_type.Entity;
+			}
+			set
+			{
+				identity_type previousValue = this._identity_type.Entity;
 				if (((previousValue != value) 
-							|| (this._transaction.HasLoadedOrAssignedValue == false)))
+							|| (this._identity_type.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._transaction.Entity = null;
-						previousValue.customer = null;
+						this._identity_type.Entity = null;
+						previousValue.customers.Remove(this);
 					}
-					this._transaction.Entity = value;
+					this._identity_type.Entity = value;
 					if ((value != null))
 					{
-						value.customer = this;
+						value.customers.Add(this);
+						this._identity_type_id = value.identity_type_id;
 					}
-					this.SendPropertyChanged("transaction");
+					else
+					{
+						this._identity_type_id = default(int);
+					}
+					this.SendPropertyChanged("identity_type");
 				}
 			}
 		}
@@ -944,6 +868,18 @@ namespace Car_Rental
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_transactions(transaction entity)
+		{
+			this.SendPropertyChanging();
+			entity.customer = this;
+		}
+		
+		private void detach_transactions(transaction entity)
+		{
+			this.SendPropertyChanging();
+			entity.customer = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.identity_type")]
@@ -955,6 +891,8 @@ namespace Car_Rental
 		private int _identity_type_id;
 		
 		private string _name;
+		
+		private EntitySet<customer> _customers;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -968,6 +906,7 @@ namespace Car_Rental
 		
 		public identity_type()
 		{
+			this._customers = new EntitySet<customer>(new Action<customer>(this.attach_customers), new Action<customer>(this.detach_customers));
 			OnCreated();
 		}
 		
@@ -1011,6 +950,19 @@ namespace Car_Rental
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="identity_type_customer", Storage="_customers", ThisKey="identity_type_id", OtherKey="identity_type_id")]
+		public EntitySet<customer> customers
+		{
+			get
+			{
+				return this._customers;
+			}
+			set
+			{
+				this._customers.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1029,6 +981,18 @@ namespace Car_Rental
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_customers(customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.identity_type = this;
+		}
+		
+		private void detach_customers(customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.identity_type = null;
 		}
 	}
 	
@@ -1051,8 +1015,6 @@ namespace Car_Rental
 		private System.DateTime _return_date;
 		
 		private double _total_price;
-		
-		private EntityRef<car> _car;
 		
 		private EntityRef<customer> _customer;
 		
@@ -1080,7 +1042,6 @@ namespace Car_Rental
 		
 		public transaction()
 		{
-			this._car = default(EntityRef<car>);
 			this._customer = default(EntityRef<customer>);
 			this._user = default(EntityRef<user>);
 			OnCreated();
@@ -1097,10 +1058,6 @@ namespace Car_Rental
 			{
 				if ((this._transaction_id != value))
 				{
-					if (this._customer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.Ontransaction_idChanging(value);
 					this.SendPropertyChanging();
 					this._transaction_id = value;
@@ -1145,6 +1102,10 @@ namespace Car_Rental
 			{
 				if ((this._customer_id != value))
 				{
+					if (this._customer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Oncustomer_idChanging(value);
 					this.SendPropertyChanging();
 					this._customer_id = value;
@@ -1165,10 +1126,6 @@ namespace Car_Rental
 			{
 				if ((this._car_id != value))
 				{
-					if (this._car.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.Oncar_idChanging(value);
 					this.SendPropertyChanging();
 					this._car_id = value;
@@ -1238,41 +1195,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="car_transaction", Storage="_car", ThisKey="car_id", OtherKey="car_id", IsForeignKey=true)]
-		public car car
-		{
-			get
-			{
-				return this._car.Entity;
-			}
-			set
-			{
-				car previousValue = this._car.Entity;
-				if (((previousValue != value) 
-							|| (this._car.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._car.Entity = null;
-						previousValue.transactions.Remove(this);
-					}
-					this._car.Entity = value;
-					if ((value != null))
-					{
-						value.transactions.Add(this);
-						this._car_id = value.car_id;
-					}
-					else
-					{
-						this._car_id = default(int);
-					}
-					this.SendPropertyChanged("car");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="customer_transaction", Storage="_customer", ThisKey="transaction_id", OtherKey="customer_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="customer_transaction", Storage="_customer", ThisKey="customer_id", OtherKey="customer_id", IsForeignKey=true)]
 		public customer customer
 		{
 			get
@@ -1289,17 +1212,17 @@ namespace Car_Rental
 					if ((previousValue != null))
 					{
 						this._customer.Entity = null;
-						previousValue.transaction = null;
+						previousValue.transactions.Remove(this);
 					}
 					this._customer.Entity = value;
 					if ((value != null))
 					{
-						value.transaction = this;
-						this._transaction_id = value.customer_id;
+						value.transactions.Add(this);
+						this._customer_id = value.customer_id;
 					}
 					else
 					{
-						this._transaction_id = default(int);
+						this._customer_id = default(int);
 					}
 					this.SendPropertyChanged("customer");
 				}

@@ -34,5 +34,13 @@ namespace Car_Rental
         {
 
         }
+
+        private void ribbonButton5_Click(object sender, EventArgs e)
+        {
+            var formcar=new Admin_Management_Car();
+            formcar.MdiParent = this;
+            formcar.StartPosition = FormStartPosition.CenterScreen;
+            formcar.Show();
+        }
     }
 }
