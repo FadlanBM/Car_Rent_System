@@ -24,8 +24,6 @@ namespace Car_Rental
 
         private void loadData() {
             int i = 0;
-           
-
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Rows.Clear();
@@ -46,10 +44,6 @@ namespace Car_Rental
                             imagename=c.image_name
                         }).ToList();
             var path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\image\";
-            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
-            imageColumn.HeaderText = "Image";
-            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            dataGridView1.Columns.Add(imageColumn);
             if (data != null)
             {
                 foreach (var item in data)

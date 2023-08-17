@@ -14,7 +14,7 @@ namespace Car_Rental
     public partial class Admin_Add_Car : Form
     {
         AppDbContextDataContext context;
-        public int id { get; set; } = 0;
+        public int? id { get; set; }
         OpenFileDialog openFileDialog;
         private string path=Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName+@"\image\";
         private string imageold = string.Empty;
@@ -67,7 +67,7 @@ namespace Car_Rental
                 Directory.CreateDirectory(path);
             }
             var imagename = DateTime.Now.Ticks.ToString() + Path.GetFileName(openFileDialog.FileName);
-            if (id==0)
+            if (id==null)
             {
             var seetValid = context.carseats.Where(cs => cs.name == cb_kursi.Text).FirstOrDefault();          
             car car=new car();          

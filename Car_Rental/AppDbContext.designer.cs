@@ -51,7 +51,7 @@ namespace Car_Rental
     #endregion
 		
 		public AppDbContextDataContext() : 
-				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString, mappingSource)
+				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

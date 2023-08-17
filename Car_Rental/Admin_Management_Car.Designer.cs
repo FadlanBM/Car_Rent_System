@@ -44,6 +44,7 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,8 @@
             this.Column8,
             this.Column9,
             this.Column5,
-            this.Column7});
+            this.Column7,
+            this.Column11});
             this.dataGridView1.Location = new System.Drawing.Point(21, 86);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -174,6 +176,12 @@
             this.Column7.Text = "Delete";
             this.Column7.UseColumnTextForButtonValue = true;
             // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Image";
+            this.Column11.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column11.Name = "Column11";
+            // 
             // Admin_Management_Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +220,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
+        private System.Windows.Forms.DataGridViewImageColumn Column11;
     }
 }

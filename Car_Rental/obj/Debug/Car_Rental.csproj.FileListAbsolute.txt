@@ -54,3 +54,7 @@ D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.pdb
 D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Car.resources
 D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Identitas.resources
 D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Management_TipeIdentitas.resources
+C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Car.resources
+C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Identitas.resources
+C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Management_Car.resources
+C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Management_TipeIdentitas.resources
