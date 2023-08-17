@@ -51,7 +51,7 @@ namespace Car_Rental
     #endregion
 		
 		public AppDbContextDataContext() : 
-				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString1, mappingSource)
+				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -732,6 +732,8 @@ namespace Car_Rental
 		
 		private int _customer_id;
 		
+		private string _nama_customer;
+		
 		private string _identity_number;
 		
 		private int _identity_type_id;
@@ -752,6 +754,8 @@ namespace Car_Rental
     partial void OnCreated();
     partial void Oncustomer_idChanging(int value);
     partial void Oncustomer_idChanged();
+    partial void Onnama_customerChanging(string value);
+    partial void Onnama_customerChanged();
     partial void Onidentity_numberChanging(string value);
     partial void Onidentity_numberChanged();
     partial void Onidentity_type_idChanging(int value);
@@ -787,6 +791,26 @@ namespace Car_Rental
 					this._customer_id = value;
 					this.SendPropertyChanged("customer_id");
 					this.Oncustomer_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama_customer", DbType="VarChar(50)")]
+		public string nama_customer
+		{
+			get
+			{
+				return this._nama_customer;
+			}
+			set
+			{
+				if ((this._nama_customer != value))
+				{
+					this.Onnama_customerChanging(value);
+					this.SendPropertyChanging();
+					this._nama_customer = value;
+					this.SendPropertyChanged("nama_customer");
+					this.Onnama_customerChanged();
 				}
 			}
 		}

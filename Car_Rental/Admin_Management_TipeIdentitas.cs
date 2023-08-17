@@ -94,5 +94,66 @@ namespace Car_Rental
             loaddata();
 
         }
+
+        private void tb_search_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            var idn = 0;
+            var data = (from i in context.identity_types
+                        orderby i.name ascending
+                        select new
+                        {
+                            id = i.identity_type_id,
+                            name = i.name,
+                        }).ToList();
+
+            if (tb_search.Text!="")
+            {
+                data = data.Where(d => d.name.ToLower().Contains(tb_search.Text.ToLower())).ToList();
+            }
+            
+            foreach (var item in data)
+            {
+                idn++;
+                var num = dataGridView1.Rows.Add();
+                dataGridView1.Rows[num].Cells[0].Value = idn;
+                dataGridView1.Rows[num].Cells[1].Value = item.id;
+                dataGridView1.Rows[num].Cells[2].Value = item.name;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (cb_orderList.Text== "Descending")
+            {
+                      dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Rows.Clear();
+                var idn = 0;
+                var data = (from i in context.identity_types
+                        orderby i.name descending
+                        select new
+                        {
+                            id = i.identity_type_id,
+                            name = i.name,
+                        }).ToList();
+
+                foreach ( var item in data )
+                {
+                idn++;
+                var num = dataGridView1.Rows.Add();
+                dataGridView1.Rows[num].Cells[0].Value =idn ;
+                dataGridView1.Rows[num].Cells[1].Value =item.id ;
+                dataGridView1.Rows[num].Cells[2].Value =item.name ;
+                }
+               
+            } 
+            if (cb_orderList.Text== "Ascending")
+            {
+                loaddata();
+            }
+        }
     }
 }

@@ -74,6 +74,12 @@
     <Compile Include="Admin_Add_Car.Designer.cs">
       <DependentUpon>Admin_Add_Car.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Add_Carseet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Add_Carseet.Designer.cs">
+      <DependentUpon>Admin_Add_Carseet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Add_Identitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,12 @@
     <Compile Include="Admin_Management_Car.Designer.cs">
       <DependentUpon>Admin_Management_Car.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Management_Carseet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Management_Carseet.Designer.cs">
+      <DependentUpon>Admin_Management_Carseet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Management_TipeIdentitas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppDbContext.dbml</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Karyawan_Add_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Karyawan_Add_Customer.Designer.cs">
+      <DependentUpon>Karyawan_Add_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Karyawan_dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Karyawan_dashboard.Designer.cs">
+      <DependentUpon>Karyawan_dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Karyawan_Management_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Karyawan_Management_Customer.Designer.cs">
+      <DependentUpon>Karyawan_Management_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Karyawan_Management_Transaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Karyawan_Management_Transaksi.Designer.cs">
+      <DependentUpon>Karyawan_Management_Transaksi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +167,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin_Add_Car.resx">
       <DependentUpon>Admin_Add_Car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Add_Carseet.resx">
+      <DependentUpon>Admin_Add_Carseet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Add_Identitas.resx">
       <DependentUpon>Admin_Add_Identitas.cs</DependentUpon>
@@ -138,11 +183,29 @@
     <EmbeddedResource Include="Admin_Management_Car.resx">
       <DependentUpon>Admin_Management_Car.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Management_Carseet.resx">
+      <DependentUpon>Admin_Management_Carseet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_TipeIdentitas.resx">
       <DependentUpon>Admin_Management_TipeIdentitas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_User.resx">
       <DependentUpon>Admin_Management_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Karyawan_Add_Customer.resx">
+      <DependentUpon>Karyawan_Add_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Karyawan_dashboard.resx">
+      <DependentUpon>Karyawan_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Karyawan_Management_Customer.resx">
+      <DependentUpon>Karyawan_Management_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Karyawan_Management_Transaksi.resx">
+      <DependentUpon>Karyawan_Management_Transaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

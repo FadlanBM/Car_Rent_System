@@ -30,7 +30,7 @@ namespace Car_Rental
             var data = (from c in context.cars
                         join s in context.carseats
                         on c.car_seat_id equals s.car_seat_id
-                        orderby c.brand descending
+                        orderby c.brand ascending
                         select new
                         {
                             car_id = c.car_id,
@@ -144,16 +144,26 @@ namespace Car_Rental
                             year = c.year,
                             status = c.status == 0 ? "Sewa" : "Kembali",
                             price = c.rental_price,
-                            carseet = s.name
+                            carseet = s.name,
+                            imagename = c.image_name
                         }).ToList();
+
+            if (tb_search.Text!=null)
+            {
+                data = data.Where(d => d.brand.ToLower().Contains(tb_search.Text.ToLower()) | d.plate.ToLower().Contains(tb_search.Text.ToLower()) | d.color.ToLower().Contains(tb_search.Text.ToLower())).ToList();
+            }
+            var path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\image\";
             if (data != null)
             {
-                if (tb_search.Text!=null)
-                {
-                    data = data.Where(c => c.brand.ToLower().Contains(tb_search.Text.ToLower()) | c.plate.ToLower().Contains(tb_search.Text.ToLower())).ToList();
-                }
                 foreach (var item in data)
                 {
+                    if (File.Exists(path + item.imagename))
+                    {
+                        using (var stram = File.OpenRead(path + item.imagename))
+                        {
+                            cusimage = new Bitmap(stram);
+                        }
+                    }
                     i++;
                     var num = dataGridView1.Rows.Add();
                     dataGridView1.Rows[num].Cells[0].Value = i;
@@ -165,38 +175,52 @@ namespace Car_Rental
                     dataGridView1.Rows[num].Cells[6].Value = item.status;
                     dataGridView1.Rows[num].Cells[7].Value = item.price;
                     dataGridView1.Rows[num].Cells[8].Value = item.carseet;
+                    dataGridView1.Rows[num].Cells[10].Value = cusimage;
                 }
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int i = 0;
+            if (cb_orderList.Text == "Ascending")
+            {
+                loadData();
+            }
             if (cb_orderList.Text == "Descending")
             {
-
+                int i = 0;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.RowHeadersVisible = false;
                 dataGridView1.Rows.Clear();
-                var datad = (from c in context.cars
-                             join s in context.carseats
-                             on c.car_seat_id equals s.car_seat_id
-                             orderby c.brand
-                             select new
-                             {
-                                 car_id = c.car_id,
-                                 brand = c.brand,
-                                 plate = c.plate,
-                                 color = c.color,
-                                 year = c.year,
-                                 status = c.status == 0 ? "Sewa" : "Kembali",
-                                 price = c.rental_price,
-                                 carseet = s.name
-                             }).ToList();
-                if (datad != null)
+                var data = (from c in context.cars
+                            join s in context.carseats
+                            on c.car_seat_id equals s.car_seat_id
+                            orderby c.brand descending
+                            select new
+                            {
+                                car_id = c.car_id,
+                                brand = c.brand,
+                                plate = c.plate,
+                                color = c.color,
+                                year = c.year,
+                                status = c.status == 0 ? "Sewa" : "Kembali",
+                                price = c.rental_price,
+                                carseet = s.name,
+                                imagename = c.image_name
+                            }).ToList();
+                var path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\image\";
+                if (data != null)
                 {
-                    foreach (var item in datad)
+                    foreach (var item in data)
                     {
+                        if (File.Exists(path + item.imagename))
+                        {
+                            using (var stram = File.OpenRead(path + item.imagename))
+                            {
+                                cusimage = new Bitmap(stram);
+                            }
+                        }
                         i++;
                         var num = dataGridView1.Rows.Add();
                         dataGridView1.Rows[num].Cells[0].Value = i;
@@ -208,12 +232,16 @@ namespace Car_Rental
                         dataGridView1.Rows[num].Cells[6].Value = item.status;
                         dataGridView1.Rows[num].Cells[7].Value = item.price;
                         dataGridView1.Rows[num].Cells[8].Value = item.carseet;
+                        dataGridView1.Rows[num].Cells[10].Value = cusimage;
                     }
                 }
-                return;
             }
-            loadData();
 
+        }
+
+        private void cb_orderList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

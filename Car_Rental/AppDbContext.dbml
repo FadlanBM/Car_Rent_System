@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Car_Rent_System" Class="AppDbContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8UJEI4N\MSSQLSERVER01;Initial Catalog=Car_Rent_System;Integrated Security=True" SettingsObjectName="Car_Rental.Properties.Settings" SettingsPropertyName="Car_Rent_SystemConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-FDMC7DB;Initial Catalog=Car_Rent_System;Integrated Security=True" SettingsObjectName="Car_Rental.Properties.Settings" SettingsPropertyName="Car_Rent_SystemConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.cars" Member="cars">
     <Type Name="car">
       <Column Name="car_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -34,6 +34,7 @@
   <Table Name="dbo.customer" Member="customers">
     <Type Name="customer">
       <Column Name="customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nama_customer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="identity_number" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="identity_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />

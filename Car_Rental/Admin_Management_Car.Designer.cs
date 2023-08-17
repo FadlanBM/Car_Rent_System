@@ -42,6 +42,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -60,6 +61,7 @@
             this.Column3,
             this.Column8,
             this.Column9,
+            this.Column12,
             this.Column5,
             this.Column7,
             this.Column11});
@@ -81,6 +83,7 @@
             this.cb_orderList.Name = "cb_orderList";
             this.cb_orderList.Size = new System.Drawing.Size(130, 21);
             this.cb_orderList.TabIndex = 11;
+            this.cb_orderList.SelectedIndexChanged += new System.EventHandler(this.cb_orderList_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -158,8 +161,13 @@
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "Jumlah Kursi";
+            this.Column9.HeaderText = "Price";
             this.Column9.Name = "Column9";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Jumlah Kursi";
+            this.Column12.Name = "Column12";
             // 
             // Column5
             // 
@@ -218,6 +226,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.DataGridViewImageColumn Column11;

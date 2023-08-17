@@ -58,3 +58,10 @@ C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_
 C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Identitas.resources
 C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Management_Car.resources
 C:\laragon\www\Desktop_c#\Car_Rent_System\Car_Rental\obj\Debug\Car_Rental.Admin_Management_TipeIdentitas.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Management_Carseet.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Carseet.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.FormLogin.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Karyawan_Add_Customer.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Karyawan_dashboard.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Karyawan_Management_Customer.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Karyawan_Management_Transaksi.resources
