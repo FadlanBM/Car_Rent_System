@@ -42,5 +42,13 @@ namespace Car_Rental
             formcar.StartPosition = FormStartPosition.CenterScreen;
             formcar.Show();
         }
+
+        private void ribbonButton2_Click(object sender, EventArgs e)
+        {
+            var frtipeidnetity=new Admin_Management_TipeIdentitas();
+            frtipeidnetity.MdiParent = this;
+            frtipeidnetity.StartPosition= FormStartPosition.CenterScreen;   
+            frtipeidnetity.Show();
+        }
     }
 }

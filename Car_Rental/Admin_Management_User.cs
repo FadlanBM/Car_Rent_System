@@ -87,7 +87,7 @@ namespace Car_Rental
                 if (dialog == DialogResult.Yes)
                 {
                     var data=context.users.Where(u=>u.user_id==int.Parse(id)).FirstOrDefault();
-                    context.users.DeleteOnSubmit(data);
+                    context.users.DeleteOnSubmit(data);                    
                     context.SubmitChanges();
                     MessageBox.Show(null, "berhasil menghapus data ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LoadData();
@@ -163,6 +163,11 @@ namespace Car_Rental
         }
 
         private void cb_orderList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

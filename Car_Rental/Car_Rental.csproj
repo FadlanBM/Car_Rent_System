@@ -74,6 +74,12 @@
     <Compile Include="Admin_Add_Car.Designer.cs">
       <DependentUpon>Admin_Add_Car.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Add_Identitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Add_Identitas.Designer.cs">
+      <DependentUpon>Admin_Add_Identitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Add_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     </Compile>
     <Compile Include="Admin_Management_Car.Designer.cs">
       <DependentUpon>Admin_Management_Car.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Management_TipeIdentitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Management_TipeIdentitas.Designer.cs">
+      <DependentUpon>Admin_Management_TipeIdentitas.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin_Management_User.cs">
       <SubType>Form</SubType>
@@ -114,6 +126,9 @@
     <EmbeddedResource Include="Admin_Add_Car.resx">
       <DependentUpon>Admin_Add_Car.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Add_Identitas.resx">
+      <DependentUpon>Admin_Add_Identitas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Add_User.resx">
       <DependentUpon>Admin_Add_User.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_Car.resx">
       <DependentUpon>Admin_Management_Car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Management_TipeIdentitas.resx">
+      <DependentUpon>Admin_Management_TipeIdentitas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_User.resx">
       <DependentUpon>Admin_Management_User.cs</DependentUpon>

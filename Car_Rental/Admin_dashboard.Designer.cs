@@ -32,14 +32,14 @@
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
-            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton7 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
@@ -90,6 +90,19 @@
             this.ribbonPanel1.Name = "ribbonPanel1";
             this.ribbonPanel1.Text = "Management";
             // 
+            // ribbonTab2
+            // 
+            this.ribbonTab2.Name = "ribbonTab2";
+            this.ribbonTab2.Panels.Add(this.ribbonPanel2);
+            this.ribbonTab2.Text = "Settings";
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Items.Add(this.ribbonButton7);
+            this.ribbonPanel2.Items.Add(this.ribbonButton8);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Text = "Settings";
+            // 
             // ribbonButton1
             // 
             this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
@@ -105,6 +118,7 @@
             this.ribbonButton2.Name = "ribbonButton2";
             this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
             this.ribbonButton2.Text = "Tipe_Identitas";
+            this.ribbonButton2.Click += new System.EventHandler(this.ribbonButton2_Click);
             // 
             // ribbonButton3
             // 
@@ -139,19 +153,6 @@
             this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
             this.ribbonButton6.Text = "User";
             this.ribbonButton6.Click += new System.EventHandler(this.ribbonButton6_Click);
-            // 
-            // ribbonTab2
-            // 
-            this.ribbonTab2.Name = "ribbonTab2";
-            this.ribbonTab2.Panels.Add(this.ribbonPanel2);
-            this.ribbonTab2.Text = "Settings";
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.Items.Add(this.ribbonButton7);
-            this.ribbonPanel2.Items.Add(this.ribbonButton8);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Text = "Settings";
             // 
             // ribbonButton7
             // 

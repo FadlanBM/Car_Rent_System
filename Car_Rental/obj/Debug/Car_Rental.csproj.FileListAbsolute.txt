@@ -52,3 +52,5 @@ D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.csproj.CopyComple
 D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.exe
 D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.pdb
 D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Car.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Add_Identitas.resources
+D:\htdocs\DesktopC#\Car_Rental\Car_Rental\obj\Debug\Car_Rental.Admin_Management_TipeIdentitas.resources

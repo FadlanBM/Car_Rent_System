@@ -71,6 +71,7 @@
             this.label1.Size = new System.Drawing.Size(44, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Filter";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tb_search
             // 
@@ -122,6 +123,7 @@
             // 
             this.Column6.HeaderText = "Id User";
             this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
             // 
             // Column1
             // 
