@@ -66,10 +66,10 @@ namespace Car_Rental
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             if (e.ColumnIndex==5)
             {
-                var form1=new Admin_Add_User(this.MdiParent);
+                var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var form1 =new Admin_Add_User(this.MdiParent);
                 form1.StartPosition = FormStartPosition.CenterParent;
                 form1.id = id;
                 form1.FormClosing += (object closeseder1, FormClosingEventArgs aw) =>
@@ -82,6 +82,7 @@ namespace Car_Rental
             }
             if (e.ColumnIndex==6)
             {
+                var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 DialogResult dialog = MessageBox.Show(null, "Pakah anda yakin ingin menghapus data ini?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialog == DialogResult.Yes)
                 {

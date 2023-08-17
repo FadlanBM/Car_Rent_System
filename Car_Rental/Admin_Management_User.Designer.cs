@@ -33,6 +33,7 @@
             this.tb_search = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.cb_orderList = new System.Windows.Forms.ComboBox();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +41,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cb_orderList = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +100,19 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // cb_orderList
+            // 
+            this.cb_orderList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_orderList.FormattingEnabled = true;
+            this.cb_orderList.Items.AddRange(new object[] {
+            "Ascending",
+            "Descending"});
+            this.cb_orderList.Location = new System.Drawing.Point(452, 29);
+            this.cb_orderList.Name = "cb_orderList";
+            this.cb_orderList.Size = new System.Drawing.Size(130, 21);
+            this.cb_orderList.TabIndex = 5;
+            this.cb_orderList.SelectedIndexChanged += new System.EventHandler(this.cb_orderList_SelectedIndexChanged);
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "No";
@@ -127,30 +140,17 @@
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Aksi";
+            this.Column5.HeaderText = "";
             this.Column5.Name = "Column5";
             this.Column5.Text = "Edit";
             this.Column5.UseColumnTextForButtonValue = true;
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Aksi";
+            this.Column7.HeaderText = "";
             this.Column7.Name = "Column7";
             this.Column7.Text = "Delete";
             this.Column7.UseColumnTextForButtonValue = true;
-            // 
-            // cb_orderList
-            // 
-            this.cb_orderList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_orderList.FormattingEnabled = true;
-            this.cb_orderList.Items.AddRange(new object[] {
-            "Ascending",
-            "Descending"});
-            this.cb_orderList.Location = new System.Drawing.Point(452, 29);
-            this.cb_orderList.Name = "cb_orderList";
-            this.cb_orderList.Size = new System.Drawing.Size(130, 21);
-            this.cb_orderList.TabIndex = 5;
-            this.cb_orderList.SelectedIndexChanged += new System.EventHandler(this.cb_orderList_SelectedIndexChanged);
             // 
             // Admin_Management_User
             // 
@@ -179,6 +179,7 @@
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cb_orderList;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -186,6 +187,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
-        private System.Windows.Forms.ComboBox cb_orderList;
     }
 }

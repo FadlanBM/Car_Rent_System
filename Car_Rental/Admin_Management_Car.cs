@@ -14,14 +14,17 @@ namespace Car_Rental
     public partial class Admin_Management_Car : Form
     {
         AppDbContextDataContext context;
+        private Image cusimage;
         public Admin_Management_Car()
         {
             context = new AppDbContextDataContext();
             InitializeComponent();
+            loadData();
         }
 
         private void loadData() {
             int i = 0;
+           
 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
@@ -39,12 +42,25 @@ namespace Car_Rental
                             year = c.year,
                             status = c.status == 0 ? "Sewa" : "Kembali",
                             price = c.rental_price,
-                            carseet = s.name
+                            carseet = s.name,
+                            imagename=c.image_name
                         }).ToList();
+            var path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\image\";
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn.HeaderText = "Image";
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dataGridView1.Columns.Add(imageColumn);
             if (data != null)
             {
                 foreach (var item in data)
                 {
+                    if (File.Exists(path+item.imagename))
+                    {
+                        using (var stram =File.OpenRead(path+item.imagename))
+                    {
+                        cusimage = new Bitmap(stram);
+                    }
+                    }                   
                     i++;
                     var num = dataGridView1.Rows.Add();
                     dataGridView1.Rows[num].Cells[0].Value = i;
@@ -56,13 +72,14 @@ namespace Car_Rental
                     dataGridView1.Rows[num].Cells[6].Value = item.status;
                     dataGridView1.Rows[num].Cells[7].Value = item.price;
                     dataGridView1.Rows[num].Cells[8].Value = item.carseet;
+                    dataGridView1.Rows[num].Cells[10].Value = cusimage;
                 }
             }
+
         }
 
         private void Admin_Management_Car_Load(object sender, EventArgs e)
         {
-            loadData();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,7 +104,6 @@ namespace Car_Rental
                 var fromadd = new Admin_Add_Car(this.MdiParent);
                 fromadd.id=int.Parse(id);
                 fromadd.StartPosition= FormStartPosition.CenterScreen;
-
                 fromadd.FormClosing += (object ac, FormClosingEventArgs r) => {
                     if (fromadd.DialogResult == DialogResult.OK)
                         loadData();
