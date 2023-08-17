@@ -9,7 +9,9 @@
       <Column Name="year" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="rental_price" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="car_seat_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="car_seat_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="image_name" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="carseat_car" Member="carseat" ThisKey="car_seat_id" OtherKey="car_seat_id" Type="carseat" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.users" Member="users">
@@ -26,6 +28,7 @@
     <Type Name="carseat">
       <Column Name="car_seat_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="carseat_car" Member="cars" ThisKey="car_seat_id" OtherKey="car_seat_id" Type="car" />
     </Type>
   </Table>
   <Table Name="dbo.customer" Member="customers">

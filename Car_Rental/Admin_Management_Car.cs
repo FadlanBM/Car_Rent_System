@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,10 +81,10 @@ namespace Car_Rental
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             if (e.ColumnIndex==8)
             {
-               var fromadd = new Admin_Add_Car(this.MdiParent);
+                var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var fromadd = new Admin_Add_Car(this.MdiParent);
                 fromadd.id=int.Parse(id);
                 fromadd.StartPosition= FormStartPosition.CenterScreen;
 
@@ -95,10 +96,17 @@ namespace Car_Rental
             }
             if (e.ColumnIndex==9)
             {
+                var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 DialogResult dialog = MessageBox.Show(null, "Apakah anda yakin ingin menghapus data ini?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialog == DialogResult.Yes)
                 {
                     var data=context.cars.Where(cs=>cs.car_id==int.Parse(id)).FirstOrDefault();
+                    var path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\image\";
+                    var nameImage = data.image_name;
+                    if (File.Exists(path + nameImage))
+                    {
+                        File.Delete(path + nameImage);
+                    }
                     context.cars.DeleteOnSubmit(data);
                     context.SubmitChanges();
                     MessageBox.Show(null, "Berhasil Hapus data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

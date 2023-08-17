@@ -149,7 +149,11 @@ namespace Car_Rental
 		
 		private string _rental_price;
 		
-		private System.Nullable<int> _car_seat_id;
+		private int _car_seat_id;
+		
+		private string _image_name;
+		
+		private EntityRef<carseat> _carseat;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -169,12 +173,15 @@ namespace Car_Rental
     partial void OnstatusChanged();
     partial void Onrental_priceChanging(string value);
     partial void Onrental_priceChanged();
-    partial void Oncar_seat_idChanging(System.Nullable<int> value);
+    partial void Oncar_seat_idChanging(int value);
     partial void Oncar_seat_idChanged();
+    partial void Onimage_nameChanging(string value);
+    partial void Onimage_nameChanged();
     #endregion
 		
 		public car()
 		{
+			this._carseat = default(EntityRef<carseat>);
 			OnCreated();
 		}
 		
@@ -318,8 +325,8 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_car_seat_id", DbType="Int")]
-		public System.Nullable<int> car_seat_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_car_seat_id", DbType="Int NOT NULL")]
+		public int car_seat_id
 		{
 			get
 			{
@@ -329,11 +336,69 @@ namespace Car_Rental
 			{
 				if ((this._car_seat_id != value))
 				{
+					if (this._carseat.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Oncar_seat_idChanging(value);
 					this.SendPropertyChanging();
 					this._car_seat_id = value;
 					this.SendPropertyChanged("car_seat_id");
 					this.Oncar_seat_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image_name", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string image_name
+		{
+			get
+			{
+				return this._image_name;
+			}
+			set
+			{
+				if ((this._image_name != value))
+				{
+					this.Onimage_nameChanging(value);
+					this.SendPropertyChanging();
+					this._image_name = value;
+					this.SendPropertyChanged("image_name");
+					this.Onimage_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="carseat_car", Storage="_carseat", ThisKey="car_seat_id", OtherKey="car_seat_id", IsForeignKey=true)]
+		public carseat carseat
+		{
+			get
+			{
+				return this._carseat.Entity;
+			}
+			set
+			{
+				carseat previousValue = this._carseat.Entity;
+				if (((previousValue != value) 
+							|| (this._carseat.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._carseat.Entity = null;
+						previousValue.cars.Remove(this);
+					}
+					this._carseat.Entity = value;
+					if ((value != null))
+					{
+						value.cars.Add(this);
+						this._car_seat_id = value.car_seat_id;
+					}
+					else
+					{
+						this._car_seat_id = default(int);
+					}
+					this.SendPropertyChanged("carseat");
 				}
 			}
 		}
@@ -555,6 +620,8 @@ namespace Car_Rental
 		
 		private string _name;
 		
+		private EntitySet<car> _cars;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -567,6 +634,7 @@ namespace Car_Rental
 		
 		public carseat()
 		{
+			this._cars = new EntitySet<car>(new Action<car>(this.attach_cars), new Action<car>(this.detach_cars));
 			OnCreated();
 		}
 		
@@ -610,6 +678,19 @@ namespace Car_Rental
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="carseat_car", Storage="_cars", ThisKey="car_seat_id", OtherKey="car_seat_id")]
+		public EntitySet<car> cars
+		{
+			get
+			{
+				return this._cars;
+			}
+			set
+			{
+				this._cars.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -628,6 +709,18 @@ namespace Car_Rental
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_cars(car entity)
+		{
+			this.SendPropertyChanging();
+			entity.carseat = this;
+		}
+		
+		private void detach_cars(car entity)
+		{
+			this.SendPropertyChanging();
+			entity.carseat = null;
 		}
 	}
 	

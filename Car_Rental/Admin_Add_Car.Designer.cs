@@ -44,7 +44,7 @@
             this.tb_price = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bt_addImage = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -190,14 +190,15 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Gambar";
             // 
-            // button1
+            // bt_addImage
             // 
-            this.button1.Location = new System.Drawing.Point(22, 393);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 35);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bt_addImage.Location = new System.Drawing.Point(22, 393);
+            this.bt_addImage.Name = "bt_addImage";
+            this.bt_addImage.Size = new System.Drawing.Size(217, 35);
+            this.bt_addImage.TabIndex = 16;
+            this.bt_addImage.Text = "Add Image";
+            this.bt_addImage.UseVisualStyleBackColor = true;
+            this.bt_addImage.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -205,8 +206,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(61, 35);
             this.button2.TabIndex = 17;
-            this.button2.Text = "button2";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -236,7 +238,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bt_addImage);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_price);
             this.Controls.Add(this.label8);
@@ -279,7 +281,7 @@
         private System.Windows.Forms.TextBox tb_price;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_addImage;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;

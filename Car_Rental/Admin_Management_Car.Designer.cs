@@ -50,7 +50,6 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column10,
@@ -64,6 +63,7 @@
             this.Column7});
             this.dataGridView1.Location = new System.Drawing.Point(21, 86);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView1.Size = new System.Drawing.Size(735, 398);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -160,14 +160,15 @@
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Aksi";
+            this.Column5.HeaderText = "";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Text = "Edit";
             this.Column5.UseColumnTextForButtonValue = true;
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Aksi";
+            this.Column7.HeaderText = "";
             this.Column7.Name = "Column7";
             this.Column7.Text = "Delete";
             this.Column7.UseColumnTextForButtonValue = true;
