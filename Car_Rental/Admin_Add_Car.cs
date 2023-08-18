@@ -100,13 +100,16 @@ namespace Car_Rental
                 car.year = dt_date.Value;
                 car.status = status;
                 car.rental_price = tb_price.Text;
-                car.car_seat_id = seetValid.car_seat_id;
-                if (File.Exists(path+imageold))
-                {
-                    File.Delete(path+imageold);
+                car.car_seat_id = seetValid.car_seat_id;                
+                if (bt_addImage.Text!=car.image_name)
+                {                    
+                    if (File.Exists(path + imageold))
+                    {
+                        File.Delete(path + imageold);
+                    }
+                     File.Copy(openFileDialog.FileName, path + imagename);
+                    car.image_name=imagename ;
                 }
-                File.Copy(openFileDialog.FileName, path + imagename);
-                car.image_name=imagename ;
                 context.SubmitChanges();
                 MessageBox.Show(null, "Berhasil Update data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cleartb();
@@ -197,6 +200,11 @@ namespace Car_Rental
                 }
 
             }
+            
+        }
+
+        private void tb_price_TextChanged(object sender, EventArgs e)
+        {
             
         }
     }

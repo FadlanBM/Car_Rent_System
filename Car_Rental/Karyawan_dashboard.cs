@@ -24,5 +24,13 @@ namespace Car_Rental
             fCustomer.MdiParent = this;
             fCustomer.Show();
         }
+
+        private void ribbonButton6_Click(object sender, EventArgs e)
+        {
+            var fManagementTransaksi= new Karyawan_Management_Transaksi();
+            fManagementTransaksi.StartPosition= FormStartPosition.CenterScreen;
+            fManagementTransaksi.MdiParent = this;
+            fManagementTransaksi.Show();
+        }
     }
 }

@@ -48,6 +48,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -166,11 +167,11 @@
             // 
             // tb_price
             // 
-            this.tb_price.Location = new System.Drawing.Point(22, 303);
+            this.tb_price.Location = new System.Drawing.Point(51, 303);
             this.tb_price.Name = "tb_price";
-            this.tb_price.Size = new System.Drawing.Size(273, 20);
+            this.tb_price.Size = new System.Drawing.Size(244, 20);
             this.tb_price.TabIndex = 14;
-            this.tb_price.Text = "Rp";
+            this.tb_price.TextChanged += new System.EventHandler(this.tb_price_TextChanged);
             // 
             // label8
             // 
@@ -229,12 +230,22 @@
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(27, 306);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(21, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Rp";
+            // 
             // Admin_Add_Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(319, 340);
+            this.ClientSize = new System.Drawing.Size(336, 340);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
@@ -285,5 +296,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label10;
     }
 }

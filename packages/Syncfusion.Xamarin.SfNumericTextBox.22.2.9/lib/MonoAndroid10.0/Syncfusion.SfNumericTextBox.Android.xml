@@ -1,0 +1,855 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.SfNumericTextBox.Android</name>
+    </assembly>
+    <members>
+        <member name="T:Com.Syncfusion.Numerictextbox.NumericHelper">
+            <summary>
+            Numeric helper class
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.NumericHelper.numericTextBox">
+            <summary>
+            Represents the numericTextBox instance field
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.NumericHelper.decimalMaxValue">
+            <summary>
+            Represents the decimalMaxValue and decimalMinValue instance field
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.NumericHelper.decimalMinValue">
+            <summary>
+            Represents the decimalMaxValue and decimalMinValue instance field
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.NumericHelper.doubleMaxValue">
+            <summary>
+            Represents the doubleMaxValue and doubleMinValue instance field
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.NumericHelper.doubleMinValue">
+            <summary>
+            Represents the doubleMaxValue and doubleMinValue instance field
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.#ctor(Com.Syncfusion.Numerictextbox.SfNumericTextBox)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.NumericHelper" /> class
+            </summary>
+            <param name="numericTextBox">SfNumericTextBox instance</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.PerformKeyRestriction(System.String,System.Char,System.Int32)">
+            <summary>
+            Represents the restrictions of keys
+            </summary>
+            <param name="text">Entered full text</param>
+            <param name="typedChar">typed character</param>
+            <param name="start">cursor position</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.OnMaximumNumberDecimalDigitsChanged">
+            <summary>
+            On MaximumNumberDecimalDigits changed
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.OnAllowNullChanged(System.Boolean)">
+            <summary>
+            On the allow null changed.
+            </summary>
+            <param name="allowNullValue">If set to <c>true</c> allow null value.</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.OnCultureChanged(Java.Util.Locale)">
+            <summary>
+            On the culture changed.
+            </summary>
+            <param name="locale">the control culture</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.OnValueChanged(System.Object)">
+            <summary>
+            value changed method
+            </summary>
+            <param name="value">the changed value</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.OnMaximumChanged(System.Object)">
+            <summary>
+            Maximum changed method
+            </summary>
+            <param name="value">the changed Maximum</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.OnMinimumChanged(System.Object)">
+            <summary>
+            Minimum changed method
+            </summary>
+            <param name="value">the changed Maximum</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.RemoveUnWantedDigits">
+            <summary>
+            Removes the unwanted characters in this method
+            </summary>
+            <returns> wanted digits</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.UpdateValueFromText">
+            <summary>
+            Updates the value.
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.UpdateValueBasedOnMaxNoDecimalDigits">
+            <summary>
+            Updates the correct truncated value to numeric edit text.
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.GetFormattedOutput">
+            <summary>
+            Gets the formatted out put.
+            </summary>
+            <returns>The formatted out put.</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.ValidateMaximumValue(System.Object)">
+            <summary>
+            Validates the maximum value.
+            </summary>
+            <param name="value">Maximum value</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.ValidateMinimumValue(System.Object)">
+            <summary>
+            Validates the minimum value.
+            </summary>
+            <param name="value">Minimum value</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.TriggerValueChangedEvent">
+            <summary>
+            Trigger ValueChanged event
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.ConvertStringToDouble(System.String)">
+            <summary>
+            Converts the string to double based on the culture.
+            </summary>
+            <param name="stringValue">String value.</param>
+            <returns>Return the string as double .value</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.ConvertStringToDecimal(System.String)">
+            <summary>
+            Converts the string to decimal based on the culture.
+            </summary>
+            <param name="stringValue">String value.</param>
+            <returns>Return the string as decimal.value</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.IsStandardNumericFormat(System.String)">
+            <summary>
+            Check whether the current Formatting string is standard numeric format
+            </summary>
+            <param name="value">format string value</param>
+            <returns>Return true, if the FormattingString is n,p,c,f,g,e</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.IsCustomNumericFormatString(System.String)">
+            <summary>
+            Check whether the current Formatting string is a custom format string.
+            </summary>
+            <param name="value">the format string value</param>
+            <returns> the format string is custom format or not</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.UpdateValue(System.IFormattable)">
+            <summary>
+            Update the value.
+            </summary>
+            <param name="value">Update the value</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.ParseRange">
+            <summary>
+            Parse the range
+            </summary>
+            <returns> the ParseRange is true or false</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.GetFormattedString(System.String)">
+            <summary>
+             Gets the formatted string.
+            </summary>
+            <param name="format">the format string value</param>
+            <returns> formatted string</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.GetDoubleValueWithoutDefaultDecimalDigits(System.Double,System.String)">
+            <summary>
+            Method used to return double value without unnecessary decimal digits.
+            </summary>
+            <param name="numericText">Mention the value with default decimal digits.</param>
+            <param name="format">Mention the format for numeric textbox.</param>
+            <returns>Returns the value without default decimal digits.</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.GetDecimalValueWithoutDefaultDecimalDigits(System.Decimal,System.String)">
+            <summary>
+            Method used to return decimal value without unnecessary decimal digits.
+            </summary>
+            <param name="numericText">Mention the value with default decimal digits.</param>
+            <param name="format">Mention the format for numeric textbox.</param>
+            <returns>Returns the value without default decimal digits.</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.NumericHelper.GetDecimalDigitsCount(System.String)">
+            <summary>
+            Gets the decimal digit count.
+            </summary>
+            <returns>The decimal digit count.</returns>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/> class.
+            </summary>   
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.numericEditText">
+            <summary>
+            Represents maintaining typed characters.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.isTextChangedInternally">
+            <summary>
+            Represents restrict the text changed event.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.previousText">
+            <summary>
+            Represents the previously typed text.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.fontSize">
+            <summary>
+            Represents the font size value.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.minimum">
+            <summary>
+            Represents the minimum value.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.maximum">
+            <summary>
+            Represents the maximum value.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.mvalue">
+            <summary>
+            Represents the typed character in english culture
+            </summary>     
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.formatString">
+            <summary>
+            Represents the control format string value
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.allowNull">
+            <summary>
+            Represents the control allow null value
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.selectAllOnFocus">
+            <summary>
+            Represents the control select all on focus
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.watermark">
+            <summary>
+            Represents the control hint text.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.cultureInfo">
+            <summary>
+            Represents control locale.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.internalCulture">
+            <summary>
+            Represents the exact c# culture info of the control.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.maximumNumberDecimalDigits">
+            <summary>
+            Represents the number of decimal digits.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.valueChangeMode">
+            <summary>
+            Represents the changing mode of the value
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.percentDisplayMode">
+             <summary>
+            Represents the display mode of percentage format string.
+             </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.parsingMode">
+            <summary>
+            Represents the mode of parsing digits.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.showGroupSeparator">
+            <summary>
+            Represents the show group separator.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.resetedBackground">
+            <summary>
+            Reset the back ground after the transparent color is applied.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.groupSeparatorMode">
+            <summary>
+            Represents the group separator active mode.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.isAfterTextChanged">
+            <summary>
+            Represents the text changed in AfterTextChanged event or not. 
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.showSoftInputForGroupSeparatorUpdate">
+            <summary>
+            Represents the bool value, that indicates to show the soft input for group separator value update in Text.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.isTextChanged">
+            <summary>
+            Represents the text changed in OnTextChanged override method or not. 
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.previousCursorPosition">
+            <summary>
+            Stores the last cursor position before the text is cleared and append, when the value property is updated.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.borderColor">
+            <summary>
+            Represents the color of the border.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.watermarkColor">
+            <summary>
+            Represents the color of the border.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.checkPlatform">
+            <summary>
+            Represents the platform is Forms or not.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.allowDefaultDecimalDigits">
+            <summary>
+            Represent the decimal digits can be allowed automatically or not while control unfocused.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.decimalSeparator">
+            <summary>
+            Represents the decimal separator of the culture.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.inputTypeUpdatedManually">
+            <summary>
+            Represents the input type has updated by customer or not.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.keypadHandle">
+            <summary>
+            Represents we will handle the keypad or not.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.numericHelper">
+            <summary>
+            Represents the common helper class
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.isValueUpdatingInternally">
+            <summary>
+            Represents whether the value is updating internally
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.isDisposed">
+            <summary>
+            Backing field to identify whether the control is disposed or not.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.IsNavigationClicked">
+            <summary>
+            Gets or sets a value indicating whether the is navigation clicked for navigate the keypad to next editor.
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.#ctor(Android.Content.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/> class.
+            </summary>
+            <param name="context">The content</param>  
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.#ctor(Android.Content.Context,Android.Util.IAttributeSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/> class.
+            </summary>
+            <param name="context">The content variable</param>
+            <param name="attributes">The new variable</param>    
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.#ctor(Android.Content.Context,Android.Util.IAttributeSet,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/> class.
+            </summary>
+            <param name="context">The value content</param>
+            <param name="attributes">The argument one</param>
+            <param name="defaultStyle">The argument two</param>     
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.#ctor(Android.Content.Context,Android.Util.IAttributeSet,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/> class.
+            </summary>
+            <param name="context">The value content</param>
+            <param name="attributes">The argument one</param>
+            <param name="defaultStyle">The argument two</param>  
+            <param name="defaultStyleResource">The argument three</param>  
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.#ctor(System.IntPtr,Android.Runtime.JniHandleOwnership)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/> class.
+            </summary>
+            <param name="a">The a</param>
+            <param name="b">The b</param>    
+        </member>
+        <member name="E:Com.Syncfusion.Numerictextbox.SfNumericTextBox.FocusChanged">
+            <summary>
+            This is focus changed event handler.
+            </summary>
+        </member>
+        <member name="E:Com.Syncfusion.Numerictextbox.SfNumericTextBox.ValueChanged">
+            <summary>
+            This is value changed event.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.EnableGroupSeparator">
+            <summary>
+            Gets or sets a value indicating whether to show the group separator or not
+            </summary>
+            <value><c>true</c> if enable group separator; otherwise, <c>false</c></value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.GroupSeparatorMode">
+            <summary>
+            Gets or sets the value of GroupSeparatorMode. It is used to change the group separator active mode. By default it is LostFocus.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.Value">
+            <summary>
+            Gets or sets the value of the input field.
+            </summary>    
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.Maximum">
+            <summary>
+            Gets or sets the maximum range of the numeric text box.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.Minimum">
+            <summary>
+            Gets or sets the minimum range of the numeric text box.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.FormatString">
+            <summary>
+            Gets or sets the value that determines the display format of the text when the control is unfocused.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.Watermark">
+            <summary>
+            Gets or sets the value to display hint text when the input field is empty and unfocused.
+            </summary>   
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.MaximumNumberDecimalDigits">
+            <summary>
+            Gets or sets the value that determines the maximum number of decimal digits to be allowed
+            </summary>      
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.PercentDisplayMode">
+            <summary>
+            Gets or sets the value that determines the percentage value in the input field.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.ParsingMode">
+            <summary>
+            Gets or sets the value that determines the dataType of Value property.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.ValueChangeMode">
+            <summary>
+            Gets or sets the value that determines when the value get change in the input field.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SelectAllOnFocus">
+            <summary>
+            Gets or sets a value indicating whether determines whether to select all or not.
+            </summary>              
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.FontSize">
+            <summary>
+            Gets or sets the value of text size.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.AllowNull">
+            <summary>
+            Gets or sets a value indicating whether null value can be set or not in input field.
+            </summary>      
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.CultureInfo">
+            <summary>
+            Gets or sets the value for a culture to display the value based on it.	
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.BorderColor">
+            <summary>
+            Gets or sets the Border color of the input field.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.SfNumericTextBox.focusedBorderColor">
+            <summary>
+            The color of the focused border.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.FocusedBorderColor">
+            <summary>
+            Gets or sets the color of the focused border.
+            </summary>
+            <value>The color of the focused border.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.WatermarkColor">
+            <summary>
+            Gets or sets a color of hint text of the input field.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.AllowDefaultDecimalDigits">
+            <summary>
+            Gets or sets a value indicating whether to allow the default decimal digits while the control is unfocused.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.InputTypeUpdatedManually">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Com.Syncfusion.Numerictextbox.SfNumericTextBox"/>
+            input type updated manually.
+            </summary>
+            <value><c>true</c> if input type updated manually; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.InternalCulture">
+            <summary>
+            Gets or sets the internal culture.
+            </summary>
+            <value>The internal culture.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.CheckPlatform">
+            <summary>
+            Gets or sets a value indicating whether a boolean property for Forms platform or not.
+            </summary>      
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.NumericEditText">
+            <summary>
+            Gets or sets the numeric edit text.
+            </summary>
+            <value>The numeric edit text is used store the typed characters.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.DecimalSeparator">
+            <summary>
+            Gets or sets the decimal separator of the current culture.
+            </summary>
+            <value>The decimal separator.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.InvertedDecimalSeparator">
+            <summary>
+            Gets or sets the inverted culture decimal separator. It means holding the dot as a separator if the current decimal separator is comma. 
+            </summary>
+            <value>The decimal separator.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.NegativeSign">
+            <summary>
+            Gets or sets the minus sign of the current culture.
+            </summary>
+            <value>The minus sign.</value>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.KeypadHandle">
+            <summary>
+            Gets or sets a value indicating whether the handling of keypad
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.IsValueUpdatingInternally">
+            <summary>
+            Gets or sets a value indicating whether the value is updated internally
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.IsTextChangedInternally">
+            <summary>
+            Gets or sets a value indicating whether the text is updated internally
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.SfNumericTextBox.PreviousText">
+            <summary>
+            Gets or sets the previous text of the control
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetRawInputType(Android.Text.InputTypes)">
+            <summary>
+            Sets the type of the raw input.
+            </summary>
+            <param name="type"> the input type</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnEditorAction(Android.Views.InputMethods.ImeAction)">
+            <summary>
+            This is void method.
+            </summary>
+            <param name="actionCode">action code</param>     
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnTextContextMenuItem(System.Int32)">
+            <summary>
+            Called when a context menu option for the text view is selected.
+            </summary>
+            <param name="id">To be added.</param>
+            <returns>indicates whether added or not.</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnValueChanged(Com.Syncfusion.Numerictextbox.ValueChangedEventArgs)">
+            <summary>
+            on value changed
+            </summary>
+            <param name="args">the value changed argument</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnFocusChanged(System.Boolean)">
+            <summary>
+            On the focus changed
+            </summary>
+            <param name="hasFocus"> the focus of the control argument</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetCulture(Java.Util.Locale)">
+            <summary>
+            set the culture
+            </summary>
+            <param name="culture">control locale</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.UpdateKeyboard">
+            <summary>
+            Updates the keyboard.
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetNumericEditTextAndIndex(System.String,System.Int32)">
+            <summary>
+            Sets the numeric edit text and index
+            </summary>
+            <param name="value">the numeric edit text value</param>
+            <param name="index">cursor position</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetNumericEditText(System.String)">
+            <summary>
+            Sets the numeric edit text.
+            </summary>
+            <param name="value">the numeric edit text</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.UpdateInternalCulture">
+            <summary>
+            Updates the internal culture in c# for formatting generalize method.
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetValue(System.Object)">
+            <summary>
+            Set value internally
+            </summary>
+            <param name="value">the value</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetMaximum(System.Object)">
+            <summary>
+            Set Maximum internally
+            </summary>
+            <param name="value">The maximum</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SetMinimum(System.Object)">
+            <summary>
+            Set Minimum internally
+            </summary>
+            <param name="value">The minimum</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.GetMaximumNumberDecimalDigits">
+            <summary>
+            get the maximum decimal digits
+            </summary>
+            <returns>the maximum decimal digits</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.GetParsingMode">
+            <summary>
+            get the parsing mode
+            </summary>
+            <returns> parsing mode</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnTextChanged(Java.Lang.ICharSequence,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This is a void method.
+            </summary>
+            <param name="text">The full text in the edit text</param>
+            <param name="start">The cursor position of the edit text</param>
+            <param name="lengthBefore">The before length of the edit text</param>
+            <param name="lengthAfter">The after length of the edit text</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.Dispose(System.Boolean)">
+            <summary>
+            Method used to unhook the events and detach the objects.
+            </summary>
+            <param name="disposing">Boolean represents disposing action.</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnFocusChanged(System.Boolean,Android.Views.FocusSearchDirection,Android.Graphics.Rect)">
+            <summary>
+            This focus changed override method.
+            Method to dispose the resources used.
+            </summary>
+            <param name="gainFocus">The focus of the text box</param>
+            <param name="direction">The focus direction of the text box</param>
+            <param name="previouslyFocusedRect">The previous direction of the text box</param>     
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.GetDisplayLocale">
+            <summary>
+            Gets the display locale.
+            </summary>
+            <returns>The display locale.</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.GetDesignerLocale(System.String)">
+            <summary>
+            Gets the display locale.
+            </summary>
+            <param name="culture">provided culture</param>
+            <returns>The display locale</returns>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.SplitCultureName(System.String)">
+            <summary>
+            Splits the name of the culture.
+            </summary>
+            <returns>The culture name.</returns>
+            <param name="cultureName">Culture name.</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.OnLoading">
+            <summary>
+            This is void method.
+            </summary>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.InitializeControl(Android.Content.Context,Android.Util.IAttributeSet,System.Int32,System.Int32)">
+            <summary>
+            Method to initialize the control.
+            </summary>
+            <param name="context">application context</param>
+            <param name="attributeSet">the attributes</param>
+            <param name="defaultStyle">the default style</param>
+            <param name="defaultStyleResource">the default resource</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.NumericTextBox_BeforeTextChanged(System.Object,Android.Text.TextChangedEventArgs)">
+            <summary>
+            This is void method
+            </summary>
+            <param name="sender">The Send</param>
+            <param name="e">The e </param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.PasteText(System.Int32,System.Int32,System.String)">
+            <summary>
+            Paste the copied text in SfNumericTextBox
+            </summary>
+            <param name="startIndex">Represents the selection start index.</param>
+            <param name="endIndex">Represents the selection end index.</param>
+            <param name="text">Represents the copied text.</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.NumericTextBox_AfterTextChanged(System.Object,Android.Text.AfterTextChangedEventArgs)">
+            <summary>
+            Handles AfterTextChanged event in SfNumericTextBox
+            </summary>
+            <param name="sender">Represents SfNumericTextBox.</param>
+            <param name="e">Represents arguments of after text changed.</param>
+        </member>
+        <member name="M:Com.Syncfusion.Numerictextbox.SfNumericTextBox.RemoveGroupSeparatorOnText(Java.Lang.ICharSequence,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Method used to delete the separator in form text for internal calculations and limitations.
+            </summary>
+            <param name="text">Represents typed text.</param>
+            <param name="start">Represents cursor position.</param>
+            <param name="lengthBefore">Represents length count before typed.</param>
+            <param name="lengthAfter">Represents length count now typed.</param>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.Parsers">
+            <summary>
+            Gets or sets the value that determines the dataType of Value property.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.Parsers.Double">
+            <summary>
+            Display the parser content in double format.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.Parsers.Decimal">
+            <summary>
+            Display the parsers content in decimal format.
+            </summary>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.PercentDisplayMode">
+            <summary>
+            Gets or sets the value that determines the percentage value in the input field.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.PercentDisplayMode.Value">
+            <summary>
+            Display the value with Percentage(%) symbol.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.PercentDisplayMode.Compute">
+            <summary>
+            Display the computed value with Percentage(%) symbol.
+            </summary>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.ValueChangeMode">
+            <summary>
+            Gets or sets the value that determines when the value get change in the input field.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.ValueChangeMode.OnLostFocus">
+            <summary>
+            The value will be changed for each key press.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.ValueChangeMode.OnKeyFocus">
+            <summary>
+            The value will be updated once the control lost its focus.
+            </summary>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.GroupSeparatorMode">
+            <summary>
+            It contains the values for the GroupSeparatorMode enumeration that determines the group separator active mode.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.GroupSeparatorMode.LostFocus">
+            <summary>
+            Value updated with group separator after the control loses focus.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.GroupSeparatorMode.Always">
+            <summary>
+            Value updated with group separator on every key press.
+            </summary>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.ValueChangedEventArgs">
+            <summary>
+            This is class.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.ValueChangedEventArgs.mvalue">
+            <summary>
+            This is object value.
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.ValueChangedEventArgs.Value">
+            <summary>
+            Gets a value indicating whether a object property.
+            </summary>
+        </member>
+        <member name="T:Com.Syncfusion.Numerictextbox.FocusChangedEventArgs">
+            <summary>
+            This is a FocusChanged class.
+            </summary>
+        </member>
+        <member name="F:Com.Syncfusion.Numerictextbox.FocusChangedEventArgs.focus">
+            <summary>
+            This is boolean value
+            </summary>
+        </member>
+        <member name="P:Com.Syncfusion.Numerictextbox.FocusChangedEventArgs.HasFocus">
+            <summary>
+            Gets a value indicating whether a boolean property.
+            </summary>
+        </member>
+    </members>
+</doc>

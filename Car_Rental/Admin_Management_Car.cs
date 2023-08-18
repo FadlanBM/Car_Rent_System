@@ -39,7 +39,7 @@ namespace Car_Rental
                             color = c.color,
                             year = c.year,
                             status = c.status == 0 ? "Sewa" : "Kembali",
-                            price = c.rental_price,
+                            price = c.rental_price.ToString(),
                             carseet = s.name,
                             imagename=c.image_name
                         }).ToList();
@@ -66,7 +66,7 @@ namespace Car_Rental
                     dataGridView1.Rows[num].Cells[6].Value = item.status;
                     dataGridView1.Rows[num].Cells[7].Value = item.price;
                     dataGridView1.Rows[num].Cells[8].Value = item.carseet;
-                    dataGridView1.Rows[num].Cells[10].Value = cusimage;
+                    dataGridView1.Rows[num].Cells[11].Value = cusimage;
                 }
             }
 
@@ -92,7 +92,7 @@ namespace Car_Rental
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex==8)
+            if (e.ColumnIndex==9)
             {
                 var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 var fromadd = new Admin_Add_Car(this.MdiParent);
@@ -104,7 +104,7 @@ namespace Car_Rental
                 };
                 fromadd.Show();
             }
-            if (e.ColumnIndex==9)
+            if (e.ColumnIndex==10)
             {
                 var id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 DialogResult dialog = MessageBox.Show(null, "Apakah anda yakin ingin menghapus data ini?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

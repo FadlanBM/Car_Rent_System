@@ -1,0 +1,777 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.SfNumericTextBox.XForms</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.Parsers">
+            <summary>
+            Contains the values for the Parser enumeration that determines the validation mode as decimal or double.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.Parsers.Decimal">
+            <summary>
+            Parses the value as Decimal.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.Parsers.Double">
+            <summary>
+            Parses the value as Double.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.PercentDisplayMode">
+            <summary>
+            Contains the values for the PercentDisplayMode enumeration allow to display the value with percentage computation.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.PercentDisplayMode.Value">
+            <summary>
+            Displays the entered value with percentage symbol.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.PercentDisplayMode.Compute">
+            <summary>
+            Computes the entered value as percentage and displays with percentage symbol.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.ValueChangeMode">
+            <summary>
+            It contains the values for the ValueChangeMode enumeration that determines the nature of validation.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.ValueChangeMode.OnLostFocus">
+            <summary>
+            Value change is updated after the control loses focus.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.ValueChangeMode.OnKeyFocus">
+            <summary>
+            Value change is updated on every key press.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.GroupSeparatorMode">
+            <summary>
+            It contains the values for the GroupSeparatorMode enumeration that determines the group separator active mode.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.GroupSeparatorMode.LostFocus">
+            <summary>
+            Value updated with group separator after the control loses focus.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.GroupSeparatorMode.Always">
+            <summary>
+            Value updated with group separator on every key press.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox">
+            <summary>
+            Represents a control that allows users enter only numeric values. It can be configured to display different formats such as currency format, scientific format, etc.
+            </summary>
+            <remarks>
+            The SfNumericTextBox is inherited from <see
+            cref="T:Xamarin.Forms.View"/>
+            </remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.TextColorProperty">
+            <summary>
+            Identifies the text color property. It is used to change the color of text <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>     
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontSizeProperty">
+            <summary>
+            Identifies font size. It is used to change the font size of text <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.BorderColorProperty">
+            <summary>
+            Identifies the border color property. It is used to change the border color of numeric text box <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>      
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontAttributesProperty">
+            <summary>
+            Identifies the font attribute property. It is used to change the font of text to either bold or italic <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.WatermarkColorProperty">
+            <summary>
+            Identifies the WatermarkColor property. It is used to set watermark custom color of NumericTextBox's watermark text <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FocusedBorderColorProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for DropDownMargin property.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ParserModeProperty">
+            <summary>
+            Identifies the ParserMode property. It is used to set parse mode to either decimal or double <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.EnableGroupSeparatorProperty">
+            <summary>
+            Identifies the EnableGroupSeparator property. It is used to indicate whether separate number or not <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.GroupSeparatorModeProperty">
+            <summary>
+            Identifies the GroupSeparatorMode property. It is used to change the group separator active mode. 
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.SelectAllOnFocusProperty">
+            <summary>
+            Identifies the SelectAllOnFocus property. It is used to select value of numeric text box when numeric text box is on the focus state <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.MaximumNumberDecimalDigitsProperty">
+            <summary>
+            Identifies the MaximumNumberDecimalDigits property. It is used to set number of zero after the decimal point. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.PercentDisplayModeProperty">
+            <summary>
+            Identifies the PercentDisplayMode property. It is used to set PercentDisplayMode to either value or compute <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontFamilyProperty">
+            <summary>
+            Identifies the FontFamily property. It is used to set font family of text in numeric text box <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontProperty">
+            <summary>
+            Identifies the Font property. It is used to set font in numeric text box <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ValueChangeModeProperty">
+            <summary>
+            Identifies the ValueChangeMode property. It is used to set ValueChangeMode to either value or compute <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ValueProperty">
+            <summary>
+            Identifies the Value property. It is used to set value to the numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.MaximumProperty">
+            <summary>
+            Identifies the Maximum property. It is used to set maximum value to numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.MinimumProperty">
+            <summary>
+            Identifies the Minimum property. It is used to set Minimum value to numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.CultureProperty">
+            <summary>
+            Identifies the Culture property. It is used to set culture to numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FormatStringProperty">
+            <summary>
+            Identifies the FormatString property. It determines the format indicator by which the display text has to be formatted. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.WatermarkProperty">
+            <summary>
+            Identifies the Watermark property. It is used to set the default watermark text. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.TextAlignmentProperty">
+            <summary>
+            Identifies the TextAlignment property. It is used to align the value of numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.AllowNullProperty">
+            <summary>
+            Identifies the AllowNull property. It indicates whether to enter null or not in numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ReturnTypeProperty">
+            <summary>
+            Identifies the  ReturnType property. It specifies the return type value for numeric text box <see cref="T:Xamarin.Forms.BindableProperty"/> control.
+            </summary>       
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ReturnCommandProperty">
+            <summary>
+            Identifies the ReturnCommand property. It specifies the event for command for return type. <see cref="T:Xamarin.Forms.BindableProperty"/> control.
+            </summary>       
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ReturnCommandParameterProperty">
+            <summary>
+            Identifies the ReturnCommandParameter property. It specifies the command parameter for return key. <see cref="T:Xamarin.Forms.BindableProperty"/> control.
+            </summary>       
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.IsfocusProperty">
+            <summary>
+            Identifies the IsFocus property. It indicates whether cursor focuses or not in numeric text box. <see cref="T:Xamarin.Forms.BindableProperty"/>.
+            </summary>
+            <remarks>This <see cref="T:Xamarin.Forms.BindableProperty"/> is read-only.</remarks>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ClearButtonVisibilityProperty">
+            <summary>
+            Backing store for the <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ClearButtonVisibility"/> bindable property.
+            </summary>   
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.IsReadOnlyProperty">
+            <summary>
+            Backing store for the <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.IsReadOnly"/> bindable property.
+            </summary>   
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.AllowDefaultDecimalDigitsProperty">
+            <summary>
+            Backing store for the <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.AllowDefaultDecimalDigits"/> bindable property.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox"/> class.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FocusEventHandler">
+            <summary>
+            Handles the FocusChanged event of the <see cref="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox"/> control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ValueEventHandler">
+            <summary>
+            Handles the ValueChanged event of the <see cref="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox"/> control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="E:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FocusChanged">
+            <summary>
+            This event occurs when <see cref="!:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Focus"/> is changed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ValueChanged">
+            <summary>
+            This event occurs when <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Value"/> is changed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Completed">
+            <summary>
+            This event occurs when <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Value"/> is completed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ParserMode">
+            <summary>
+            Gets or sets the value of ParserMode. It is used to change the type of ParseMode to either Decimal or Double.
+            </summary>
+            <value>The default value is Decimal.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.EnableGroupSeparator">
+            <summary>
+            Gets or sets a value indicating whether the  numeric text should be separated by separator or not.
+            </summary>
+            <value><c>true</c> if enable group separator; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.GroupSeparatorMode">
+            <summary>
+            Gets or sets the value of GroupSeparatorMode. It is used to change the group separator active mode. By default it is LostFocus.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.SelectAllOnFocus">
+            <summary>
+            Gets or sets a value indicating whether the text of numeric text box is select all in focus state or not.
+            </summary>
+            <value>default value is false.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.PercentDisplayMode">
+            <summary>
+            Gets or sets the percent display mode that parses the entered text as percentage in specified mode.
+            </summary>
+            <value>The default value is <see cref="F:Syncfusion.SfNumericTextBox.XForms.PercentDisplayMode.Compute"/>.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ValueChangeMode">
+            <summary>
+            Gets or sets the value change mode in which entered text is parsed to set to <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Value"/>.
+            </summary>
+            <value>The default value is <see cref="F:Syncfusion.SfNumericTextBox.XForms.ValueChangeMode.OnLostFocus"/>.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.MaximumNumberDecimalDigits">
+            <summary>
+            Gets or sets the value of MaximumNumberDecimalDigits. It determines the maximum number of decimal digits to be allowed in numeric text box.
+            </summary>
+            <value>The default value is 2.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Maximum">
+            <summary>
+            Gets or sets the value of Maximum. It is used to set the maximum value in numeric text box. You cannot increase the value after this range.
+            </summary>
+            <value>The default value is null.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Minimum">
+            <summary>
+            Gets or sets the value of Minimum. It is used to set the Minimum value in numeric text box. You cannot decrease the value after this range.
+            </summary>
+            <value>The default value is null.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Value">
+            <summary>
+            Gets or sets the value. This API is used to give input to numeric text box. It is text of numeric text box.
+            </summary>
+            <value>The default value is null.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.AllowNull">
+            <summary>
+            Gets or sets a value indicating whether the null value can be set or not in the input field of numeric text box.
+            </summary>
+            <value>The default value is false.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.TextAlignment">
+            <summary>
+            Gets or sets the value of TextAlignment. It is used to set the alignment of the text in the input field.
+            </summary>
+            <value>The default value is <see cref="F:Xamarin.Forms.TextAlignment.Start"/>.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Watermark">
+            <summary>
+            Gets or sets the value of Watermark. It is used to display hint text when the input field is empty and unfocused.
+            </summary>
+            <value>The default value is empty string.</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FocusedBorderColor">
+            <summary>
+            Gets or sets the color of the focused border
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FormatString">
+            <summary>
+            Gets or sets the value of FormatString. It determines the display format of the text when the control is unfocused.
+            </summary>
+            <value>The default value is 'n'</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Culture">
+            <summary>
+            Gets or sets the value of culture. Value of numeric text box can be displayed based on the Culture property.
+            </summary>
+            <value>The default value is CultureInfo.CurrentUICulture</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontSize">
+            <summary>
+            Gets or sets the value of font size. This property can be used to customize the size of text in numeric text box.
+            </summary>
+            <value>The default value is 18</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.TextColor">
+            <summary>
+            Gets or sets the value of TextColor. This property can be used to change the color of text in numeric text box.
+            </summary>
+            <value>The default value is Gray</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.WatermarkColor">
+            <summary>
+            Gets or sets the value of WatermarkColor. This property can be used to change the color of watermark text in numeric text box. 
+            </summary>
+            <value>The default value is Gray</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontFamily">
+            <summary>
+             Gets or sets the value of FontFamily. This property can be used to change the FontFamily of text in numeric text box.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Font">
+            <summary>
+            Gets or sets the value of Font. This property can be used to change the font of text in numeric text box.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.BorderColor">
+            <summary>
+            Gets or sets the BorderColor of the input field. This property can be used to change the border color of numeric text box.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontAttributes">
+            <summary>
+            Gets or sets the value of FontAttributes. This property can be used to change the value of numeric text box to either bold or italic.
+            </summary>
+            <value>The default value is Gray</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ReturnType">
+            <summary>
+            Gets or sets an enumeration value that controls the appearance of the return button.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ReturnCommand">
+            <summary>
+            Gets or sets the command to run when the user presses the return key.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ReturnCommandParameter">
+            <summary>
+            Gets or sets the parameter for the ReturnCommand.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Isfocus">
+            <summary>
+            Gets or sets a value indicating whether the numeric text box is in focus state or not. Numeric text box is in focus when this property is set to true.
+            </summary>
+            <value>The default value is false</value>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ClearButtonVisibility">
+            <summary>
+            Gets or sets a value indicating whether to display a clear button, which is used to clear the text entered in <see cref="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.IsReadOnly">
+            <summary>
+            Gets or sets a value indicating whether user should be prevented from modifying the text. Default is false.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.AllowDefaultDecimalDigits">
+            <summary>
+            Gets or sets a value indicating whether to allow the default decimal digits while the control is unfocused.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.propertiesChanged">
+            <summary>
+            Gets or sets a collection property changed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.PropertiesChanged">
+            <summary>
+            Gets or sets a list of property names.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FontSizeDefaultValueCreator">
+            <summary>
+            Method returns default value of font size. 
+            </summary>
+            <returns>Returns double value.</returns>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.GetDefaultWaterMarkColor">
+            <summary>
+            Get default value of watermark text color.
+            </summary>
+            <returns>returns default color for watermark text.</returns>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnNumericTextPropertyChanged(System.String)">
+            <summary>
+            Handles On NumericText Property Changed event
+            </summary>
+            <param name="propertyName">changed property name.</param> 
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Syncfusion#XForms#Themes#IParentThemeElement#GetThemeDictionary">
+            <summary>
+            Returns the controls style color.
+            </summary>
+            <returns>Returns the style color to core.</returns>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Syncfusion#XForms#Themes#IThemeElement#OnControlThemeChanged(System.String,System.String)">
+            <summary>
+            This method will be called when a theme dictionary that contains the value for your control key is merged in application. 
+            </summary>
+            <param name="oldTheme">Old theme.</param>
+            <param name="newTheme">New theme.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.Syncfusion#XForms#Themes#IThemeElement#OnCommonThemeChanged(System.String,System.String)">
+            <summary>
+            This method will be called when users merge a theme dictionary that contains value for SyncfusionTheme dynamic resource key.
+            </summary>
+            <param name="oldTheme">Old theme.</param>
+            <param name="newTheme">New theme.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.GetDefaultTextFontFamily">
+            <summary>
+            Get default value of Font family.
+            </summary>
+            <returns>returns default font family.</returns>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnTextColorPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles TextColor changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnFontSizePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles FontSizeProperty changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnWatermarkColorPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles WatermarkColor changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnAllowNullPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles AllowNull changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnIsReadOnlyPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles IsReadOnly changed event.
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnFocusedBorderColorPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles Focused BorderColor changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnTextAlignmentPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles TextAlignment changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnWatermarkPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles WatermarkProperty changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnFormatStringPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles FormatString changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnValuePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles Value changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnCulturePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles Culture changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnValueChangeModePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles ValueChangeMode changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnMaximumChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles Maximum Value changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnMinimumChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles Minimum Value changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnFontPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles Font changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnFontFamilyPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles FontFamily changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnPercentDisplayModePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles FontFamily changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnMaximumNumberDecimalDigitsPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles MaximumNumberDecimalDigits changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnSelectAllOnFocusPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles SelectAllOnFocus changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnEnableGroupSeparatorPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles EnableGroupSeparator changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnGroupSeparatorModePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles GroupSeparatorMode changed event.
+            </summary>
+            <param name="bindable">Represents data binding object.</param>
+            <param name="oldValue">Represents GroupSeparatorMode old value.</param>
+            <param name="newValue">Represents GroupSeparatorMode new value.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnParserModePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles ParserMode changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnFontAttributesPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles FontAttributes changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnBorderColorPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles BorderColor changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnReturnTypePropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles ReturnType changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnClearButtonVisibilityPropetyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ClearButtonVisibility"/> changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.OnAllowDefaultDecimalDigitsPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Handles <see cref="P:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.AllowDefaultDecimalDigits"/> changed event
+            </summary>
+            <param name="bindable">the data binding object</param>
+            <param name="oldValue">the old value</param>
+            <param name="newValue">the new value</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.RaiseFocusChanging(Syncfusion.SfNumericTextBox.XForms.FocusEventArgs)">
+            <summary>
+            The raise focus changing event.
+            </summary>
+            <param name="args"> The Argument. </param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.RaiseValueChanging(Syncfusion.SfNumericTextBox.XForms.ValueEventArgs)">
+            <summary>
+            The raise value changing event.
+            </summary>
+            <param name="args"> The Argument. </param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.RaiseCompletedEventAction(System.EventArgs)">
+            <summary>
+            Raises the completed event action.
+            </summary>
+            <param name="args">The event arguments.</param>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.ValueEventArgs">
+            <summary>
+            The ValueEventArgs class represents the properties of the ValueChanged event in numeric text box. <see 
+            cref="E:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.ValueChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.ValueEventArgs.Value">
+            <summary>
+            Gets a value of the input field.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.ValueEventArgs.OldValue">
+            <summary>
+            Gets an old value of the input field
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.FocusEventArgs">
+            <summary>
+            Represents the arguments for <see 
+            cref="E:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox.FocusChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.SfNumericTextBox.XForms.FocusEventArgs.HasFocus">
+            <summary>
+            Gets a value indicating whether has focus is gained or not.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBoxStyles">
+            <summary>
+            Holds the theme style for the <see cref="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBoxStyles.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfNumericTextBox.XForms.SfNumericTextBoxStyles" /> class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -51,7 +51,7 @@ namespace Car_Rental
     #endregion
 		
 		public AppDbContextDataContext() : 
-				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString, mappingSource)
+				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -795,7 +795,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama_customer", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama_customer", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string nama_customer
 		{
 			get

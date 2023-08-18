@@ -16,5 +16,19 @@ namespace Car_Rental
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var fAddTransaksi=new Karyawan_Add_Transaksi(this.MdiParent);
+            fAddTransaksi.StartPosition = FormStartPosition.CenterScreen;
+            fAddTransaksi.FormClosing += (object sda, FormClosingEventArgs sada) =>
+            {
+                if (DialogResult.OK == fAddTransaksi.DialogResult)
+                {
+
+                }
+            };
+            fAddTransaksi.Show();
+        }
     }
 }

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.SfNumericTextBox.XForms.UWP</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxMapping">
+            <summary>
+            Sf busy indicator mapping.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxMapping.NumericTextBox">
+            <summary>
+            The busy indicator.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxMapping.OnSfNumericTextBoxPropertiesChanged(System.String,Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox,Syncfusion.UI.Xaml.Controls.Input.SfNumericTextBox)">
+            <summary>
+            Raises the SfNumericTextBox properties changed event.
+            </summary>
+            <param name="propertyName">Property name.</param>
+            <param name="formsNumericTextBox">Forms busy indicator.</param>
+            <param name="nativeNumericTextBox">Native busy indicator.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxMapping.SetAlignment(Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox,Syncfusion.UI.Xaml.Controls.Input.SfNumericTextBox)">
+            <summary>
+            Updates the alignment on flow direction changes.
+            </summary>
+            <param name="effectiveFlowDirection">flow direction</param>
+            <param name="textAlignment">text alignment</param>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer">
+            <summary>
+            Sf busy indicator renderer.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.NumericTextBox">
+            <summary>
+            The busy indicator.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.nativeNumericTextBox">
+            <summary>
+            The native busy indicator.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.sfNumericTextBoxMapping">
+            <summary>
+            The sfNumericTextBox mapping.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.prevValue">
+            <summary>
+            Initializes a new instance of the <see cref="!:Syncfusion.SfNumericTextBox.XForms.WinPhone.SfNumericTextBoxRenderer"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.GetDesiredSize(System.Double,System.Double)">
+            <summary>
+            Gets the size of the UIElement.
+            </summary>
+            <param name="widthConstraint">Width of the UI.</param>
+            <param name="heightConstraint">Height of the UI.</param>
+            <returns>The computed size.</returns>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.OnElementChanged(Xamarin.Forms.Platform.UWP.ElementChangedEventArgs{Syncfusion.SfNumericTextBox.XForms.SfNumericTextBox})">
+            <summary>
+            Raises the element changed event.
+            </summary>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.TextBoxOnKeyUp(System.Object,Windows.UI.Xaml.Input.KeyRoutedEventArgs)">
+            <summary>
+            Texts the box on key up.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="args">Arguments.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises the element property changed event.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.GetPropertiesChanged(System.Type,System.Object)">
+            <summary>
+            Gets the properties changed.
+            </summary>
+            <returns>The properties changed.</returns>
+            <param name="type">Type.</param>
+            <param name="obj">Object.</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.SetAutomationId(System.String)">
+            <summary>
+            Sets the automation ID.
+            </summary>
+            <param name="id">Automation ID</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxRenderer.OnCreateAutomationPeer">
+            <summary>
+            Provide automation peer for the control
+            </summary>
+            <returns>Numeric text box automation peer.</returns>
+        </member>
+        <member name="T:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxAutomationPeer">
+            <summary>
+            Numeric text box automation peer class 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxAutomationPeer.#ctor(Windows.UI.Xaml.FrameworkElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxAutomationPeer"/> class.
+            </summary>
+            <param name="owner">Numeric text box control</param>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxAutomationPeer.GetAutomationControlTypeCore">
+            <summary>
+            Describe the control type
+            </summary>
+            <returns>The control type.</returns>
+        </member>
+        <member name="M:Syncfusion.SfNumericTextBox.XForms.UWP.SfNumericTextBoxAutomationPeer.GetClassNameCore">
+            <summary>
+            Describe the class name.
+            </summary>
+            <returns>The Class Name.</returns>
+        </member>
+    </members>
+</doc>
