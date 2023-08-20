@@ -32,5 +32,31 @@ namespace Car_Rental
             fManagementTransaksi.MdiParent = this;
             fManagementTransaksi.Show();
         }
+
+        private void ribbonButton8_Click(object sender, EventArgs e)
+        {
+            var fResetPass=new FResetPassword();
+            fResetPass.StartPosition = FormStartPosition.CenterScreen;
+            fResetPass.MdiParent = this;
+            fResetPass.FormClosing += (object saas, FormClosingEventArgs ada) =>
+            {
+                if (DialogResult.OK == fResetPass.DialogResult)
+                {
+                    this.Hide();
+                }
+            };
+            fResetPass.Show();  
+        }
+
+        private void ribbonButton7_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show(null, "Apakah anda yakin ingin logout?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                 new Login().Show();
+                this.Close();
+            }
+            
+        }
     }
 }

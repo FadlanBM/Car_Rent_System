@@ -27,7 +27,10 @@ namespace Car_Rental
             form.FormClosing += (object closesender, FormClosingEventArgs ea) =>
             {
                 if (form.DialogResult == DialogResult.OK)
-                    LoadData();             
+                    if (cb_orderList.Text == "Descending")                    
+                        LoadDatades();                                    
+                    else                    
+                        LoadData();                    
             };
 
             form.Show();
@@ -41,6 +44,31 @@ namespace Car_Rental
             int i = 0;
             var data=(from u in context.users
                       orderby u.name ascending 
+                      select new { 
+                        name=u.name,
+                        id=u.user_id,
+                        username=u.username,
+                        level=u.level==0?"Admin":"Karyawan",
+                      }).ToList();
+            foreach (var item in data)
+            {
+                i++;
+                var num=dataGridView1.Rows.Add();
+                dataGridView1.Rows[num].Cells[0].Value= i;
+                dataGridView1.Rows[num].Cells[1].Value= item.id;
+                dataGridView1.Rows[num].Cells[2].Value= item.name;
+                dataGridView1.Rows[num].Cells[3].Value= item.username;
+                dataGridView1.Rows[num].Cells[4].Value= item.level;
+            }
+        } 
+        private void LoadDatades()
+        {
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            int i = 0;
+            var data=(from u in context.users
+                      orderby u.name descending 
                       select new { 
                         name=u.name,
                         id=u.user_id,
@@ -74,8 +102,13 @@ namespace Car_Rental
                 form1.id = id;
                 form1.FormClosing += (object closeseder1, FormClosingEventArgs aw) =>
                 {
-                    if (form1.DialogResult == DialogResult.OK)                    
-                        LoadData();
+                    if (form1.DialogResult == DialogResult.OK)
+                    {
+                        if (cb_orderList.Text== "Descending")                        
+                            LoadDatades();                       
+                        else
+                            LoadData();
+                    }
                     
                 };
                 form1.Show();

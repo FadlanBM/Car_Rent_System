@@ -1,6 +1,6 @@
 ﻿namespace Car_Rental
 {
-    partial class Karyawan_Management_Customer
+    partial class Admin_Management_Customer
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.cb_orderList = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tb_search = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -42,8 +41,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,46 +51,37 @@
             this.cb_orderList.Items.AddRange(new object[] {
             "Ascending",
             "Descending"});
-            this.cb_orderList.Location = new System.Drawing.Point(450, 17);
+            this.cb_orderList.Location = new System.Drawing.Point(536, 19);
             this.cb_orderList.Name = "cb_orderList";
             this.cb_orderList.Size = new System.Drawing.Size(130, 21);
-            this.cb_orderList.TabIndex = 17;
+            this.cb_orderList.TabIndex = 23;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(586, 13);
+            this.button2.Location = new System.Drawing.Point(672, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 27);
-            this.button2.TabIndex = 16;
+            this.button2.TabIndex = 22;
             this.button2.Text = "Sort";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(667, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "+ New";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // tb_search
             // 
-            this.tb_search.Location = new System.Drawing.Point(75, 14);
+            this.tb_search.Location = new System.Drawing.Point(75, 18);
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 20);
-            this.tb_search.TabIndex = 14;
+            this.tb_search.TabIndex = 20;
+            this.tb_search.TextChanged += new System.EventHandler(this.tb_search_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 13);
+            this.label1.Location = new System.Drawing.Point(25, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 20);
-            this.label1.TabIndex = 13;
+            this.label1.TabIndex = 19;
             this.label1.Text = "Filter";
             // 
             // dataGridView1
@@ -107,15 +95,12 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column8,
-            this.Column7,
-            this.Column9});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 61);
+            this.Column8});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView1.Size = new System.Drawing.Size(735, 398);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.TabIndex = 18;
             // 
             // Column4
             // 
@@ -158,34 +143,19 @@
             this.Column8.HeaderText = "Jenis Kelamin";
             this.Column8.Name = "Column8";
             // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "";
-            this.Column7.Name = "Column7";
-            this.Column7.Text = "Edit";
-            this.Column7.UseColumnTextForButtonValue = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "";
-            this.Column9.Name = "Column9";
-            this.Column9.Text = "Delete";
-            this.Column9.UseColumnTextForButtonValue = true;
-            // 
-            // Karyawan_Management_Customer
+            // Admin_Management_Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 466);
+            this.ClientSize = new System.Drawing.Size(761, 467);
             this.Controls.Add(this.cb_orderList);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tb_search);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Karyawan_Management_Customer";
-            this.Text = "Karyawan_Management_Customer";
-            this.Load += new System.EventHandler(this.Karyawan_Management_Customer_Load);
+            this.Name = "Admin_Management_Customer";
+            this.Text = "Admin_Management_Customer";
+            this.Load += new System.EventHandler(this.Admin_Management_Customer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,9 +163,9 @@
         }
 
         #endregion
+
         private System.Windows.Forms.ComboBox cb_orderList;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -207,7 +177,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewButtonColumn Column7;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
     }
 }

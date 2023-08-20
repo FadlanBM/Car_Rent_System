@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,6 @@ namespace Car_Rental
         {
             context = new AppDbContextDataContext();
             InitializeComponent();
-            loadData();
         }
 
         private void loadData() {
@@ -39,7 +39,55 @@ namespace Car_Rental
                             color = c.color,
                             year = c.year,
                             status = c.status == 0 ? "Sewa" : "Kembali",
-                            price = c.rental_price.ToString(),
+                            price = string.Format("{0:n}",c.rental_price),
+                            carseet = s.name,
+                            imagename=c.image_name
+                        }).ToList();
+            var path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\image\";
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    if (File.Exists(path+item.imagename))
+                    {
+                        using (var stram =File.OpenRead(path+item.imagename))
+                    {
+                        cusimage = new Bitmap(stram);
+                    }
+                    }                   
+                    i++;
+                    var num = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[num].Cells[0].Value = i;
+                    dataGridView1.Rows[num].Cells[1].Value = item.car_id;
+                    dataGridView1.Rows[num].Cells[2].Value = item.brand;
+                    dataGridView1.Rows[num].Cells[3].Value = item.plate;
+                    dataGridView1.Rows[num].Cells[4].Value = item.color;
+                    dataGridView1.Rows[num].Cells[5].Value = item.year;
+                    dataGridView1.Rows[num].Cells[6].Value = item.status;
+                    dataGridView1.Rows[num].Cells[7].Value = item.price;
+                    dataGridView1.Rows[num].Cells[8].Value = item.carseet;
+                    dataGridView1.Rows[num].Cells[11].Value = cusimage;
+                }
+            }
+
+        }  private void loadDataDes() {
+            int i = 0;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            var data = (from c in context.cars
+                        join s in context.carseats
+                        on c.car_seat_id equals s.car_seat_id
+                        orderby c.brand descending
+                        select new
+                        {
+                            car_id = c.car_id,
+                            brand = c.brand,
+                            plate = c.plate,
+                            color = c.color,
+                            year = c.year,
+                            status = c.status == 0 ? "Sewa" : "Kembali",
+                            price = string.Format("{0:n}",c.rental_price),
                             carseet = s.name,
                             imagename=c.image_name
                         }).ToList();
@@ -74,6 +122,7 @@ namespace Car_Rental
 
         private void Admin_Management_Car_Load(object sender, EventArgs e)
         {
+            loadData();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,7 +132,10 @@ namespace Car_Rental
             formAdd.FormClosing += (object seed, FormClosingEventArgs ag) =>
             {
                 if (DialogResult.OK == formAdd.DialogResult) {
-                    loadData();
+                    if (cb_orderList.Text == "Descending")
+                        loadDataDes();
+                    else
+                        loadData();
                 }
                 
             };
@@ -100,7 +152,10 @@ namespace Car_Rental
                 fromadd.StartPosition= FormStartPosition.CenterScreen;
                 fromadd.FormClosing += (object ac, FormClosingEventArgs r) => {
                     if (fromadd.DialogResult == DialogResult.OK)
-                        loadData();
+                        if (cb_orderList.Text == "Descending")
+                            loadDataDes();
+                        else
+                            loadData();
                 };
                 fromadd.Show();
             }

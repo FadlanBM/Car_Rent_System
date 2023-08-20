@@ -39,6 +39,27 @@ namespace Car_Rental
                 dataGridView1.Rows[num].Cells[1].Value =item.id ;
                 dataGridView1.Rows[num].Cells[2].Value =item.name ;
             }
+        } private void loaddataDes() { 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            var idn = 0;
+            var data = (from i in context.identity_types
+                        orderby i.name descending
+                        select new
+                        {
+                            id = i.identity_type_id,
+                            name = i.name,
+                        }).ToList();
+
+           foreach ( var item in data )
+            {
+                idn++;
+                var num = dataGridView1.Rows.Add();
+                dataGridView1.Rows[num].Cells[0].Value =idn ;
+                dataGridView1.Rows[num].Cells[1].Value =item.id ;
+                dataGridView1.Rows[num].Cells[2].Value =item.name ;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,9 +68,11 @@ namespace Car_Rental
             FrAddIdentity.StartPosition = FormStartPosition.CenterScreen;
             FrAddIdentity.FormClosing += (object sd, FormClosingEventArgs ss) =>
             {
-                if (DialogResult.OK==FrAddIdentity.DialogResult)
-                
-                    loaddata();
+                if (DialogResult.OK == FrAddIdentity.DialogResult)
+                    if (cb_orderList.Text == "Descending")
+                        loaddataDes();
+                    else
+                        loaddata();
                 
             };
             FrAddIdentity.Show();
@@ -68,8 +91,10 @@ namespace Car_Rental
                 frAddiden.FormClosing += (object cc, FormClosingEventArgs ag) =>
                 {
                     if (DialogResult.OK == frAddiden.DialogResult)
-                                        loaddata();
-                    
+                        if (cb_orderList.Text == "Descending")
+                            loaddataDes();
+                        else
+                            loaddata();
                 };
                 frAddiden.Show();
                 return;

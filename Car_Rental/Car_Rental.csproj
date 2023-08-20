@@ -131,11 +131,23 @@
     <Compile Include="Admin_Management_Carseet.Designer.cs">
       <DependentUpon>Admin_Management_Carseet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Management_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Management_Customer.Designer.cs">
+      <DependentUpon>Admin_Management_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Management_TipeIdentitas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin_Management_TipeIdentitas.Designer.cs">
       <DependentUpon>Admin_Management_TipeIdentitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Management_Transaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Management_Transaksi.Designer.cs">
+      <DependentUpon>Admin_Management_Transaksi.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin_Management_User.cs">
       <SubType>Form</SubType>
@@ -148,12 +160,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppDbContext.dbml</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="FResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="FResetPassword.Designer.cs">
+      <DependentUpon>FResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Helper.cs" />
     <Compile Include="Karyawan_Add_Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,14 +226,20 @@
     <EmbeddedResource Include="Admin_Management_Carseet.resx">
       <DependentUpon>Admin_Management_Carseet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Management_Customer.resx">
+      <DependentUpon>Admin_Management_Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_TipeIdentitas.resx">
       <DependentUpon>Admin_Management_TipeIdentitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Management_Transaksi.resx">
+      <DependentUpon>Admin_Management_Transaksi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Management_User.resx">
       <DependentUpon>Admin_Management_User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FResetPassword.resx">
+      <DependentUpon>FResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Karyawan_Add_Customer.resx">
       <DependentUpon>Karyawan_Add_Customer.cs</DependentUpon>
@@ -236,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Karyawan_Management_Transaksi.resx">
       <DependentUpon>Karyawan_Management_Transaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

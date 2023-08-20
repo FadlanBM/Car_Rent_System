@@ -27,7 +27,14 @@ namespace Car_Rental
             {
                 if (DialogResult.OK == fAddCustomer.DialogResult)
                 {
-                    loadData();
+                    if (cb_orderList.Text == "Descending")
+                    {
+                        loadDatades();
+                    }
+                    else
+                    {
+                        loadData();
+                    }
                 }
             };
             fAddCustomer.Show();
@@ -43,6 +50,41 @@ namespace Car_Rental
                         join idn in context.identity_types
                         on c.identity_type_id equals idn.identity_type_id
                         orderby c.identity_number ascending
+                        select new
+                        {
+                            idcus = c.customer_id,
+                            name = c.nama_customer,
+                            identityNum = c.identity_number,
+                            nameIdentity = idn.name,
+                            address = c.address,
+                            gender = c.gender == 0 ? "Laki Laki" : "Perempuan",
+                            phone = c.phone_number
+                        }).ToList();
+
+            foreach (var item in data)
+            {
+                i++;
+                var num = dataGridView1.Rows.Add();
+                dataGridView1.Rows[num].Cells[0].Value = i;
+                dataGridView1.Rows[num].Cells[1].Value = item.idcus;
+                dataGridView1.Rows[num].Cells[2].Value = item.name;
+                dataGridView1.Rows[num].Cells[3].Value = item.identityNum;
+                dataGridView1.Rows[num].Cells[4].Value = item.nameIdentity;
+                dataGridView1.Rows[num].Cells[5].Value = item.address;
+                dataGridView1.Rows[num].Cells[6].Value = item.phone;
+                dataGridView1.Rows[num].Cells[7].Value = item.gender;
+
+            }
+        }  private void loadDatades()
+        {
+            int i = 0;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            var data = (from c in context.customers
+                        join idn in context.identity_types
+                        on c.identity_type_id equals idn.identity_type_id
+                        orderby c.identity_number descending
                         select new
                         {
                             idcus = c.customer_id,
@@ -87,7 +129,14 @@ namespace Car_Rental
                 {
                     if (DialogResult.OK == fAddCutomer.DialogResult)
                     {
-                        loadData();
+                        if (cb_orderList.Text== "Descending")
+                        {
+                            loadDatades();
+                        }
+                        else
+                        {
+                            loadData();
+                        }
                     }
                 };
                 fAddCutomer.Show();
@@ -107,6 +156,50 @@ namespace Car_Rental
                     return;
                     }                    
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (cb_orderList.Text == "Descending")
+            {
+                int i = 0;
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Rows.Clear();
+                var data = (from c in context.customers
+                            join idn in context.identity_types
+                            on c.identity_type_id equals idn.identity_type_id
+                            orderby c.identity_number descending
+                            select new
+                            {
+                                idcus = c.customer_id,
+                                name = c.nama_customer,
+                                identityNum = c.identity_number,
+                                nameIdentity = idn.name,
+                                address = c.address,
+                                gender = c.gender == 0 ? "Laki Laki" : "Perempuan",
+                                phone = c.phone_number
+                            }).ToList();
+
+                foreach (var item in data)
+                {
+                    i++;
+                    var num = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[num].Cells[0].Value = i;
+                    dataGridView1.Rows[num].Cells[1].Value = item.idcus;
+                    dataGridView1.Rows[num].Cells[2].Value = item.name;
+                    dataGridView1.Rows[num].Cells[3].Value = item.identityNum;
+                    dataGridView1.Rows[num].Cells[4].Value = item.nameIdentity;
+                    dataGridView1.Rows[num].Cells[5].Value = item.address;
+                    dataGridView1.Rows[num].Cells[6].Value = item.phone;
+                    dataGridView1.Rows[num].Cells[7].Value = item.gender;
+
+                }
+            }
+            else
+            {
+                loadData();
             }
         }
     }

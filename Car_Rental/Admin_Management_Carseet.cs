@@ -44,6 +44,26 @@ namespace Car_Rental
                 dataGridView1.Rows[num].Cells[1].Value = item.id;
                 dataGridView1.Rows[num].Cells[2].Value= item.name;  
             }
+        }  private void loadDataDes() { 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Rows.Clear();
+            int i = 0;
+            var data = (from ct in context.carseats
+                        orderby ct.name descending
+                        select new
+                        {
+                            id=ct.car_seat_id,
+                            name=ct.name,
+                        }).ToList();
+            foreach ( var item in data)
+            {
+                i++;
+                var num = dataGridView1.Rows.Add();
+                dataGridView1.Rows[num].Cells[0].Value = i;
+                dataGridView1.Rows[num].Cells[1].Value = item.id;
+                dataGridView1.Rows[num].Cells[2].Value= item.name;  
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,9 +73,10 @@ namespace Car_Rental
             fCarSeet.FormClosing += (object sd, FormClosingEventArgs sf) =>
             {
                 if (DialogResult.OK == fCarSeet.DialogResult)
-                
-                    loadData();
-                
+                    if (cb_orderList.Text == "Descending")
+                        loadDataDes();
+                    else
+                        loadData();
             };
             fCarSeet.Show();
         }

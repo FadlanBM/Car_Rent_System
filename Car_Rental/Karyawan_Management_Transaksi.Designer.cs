@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cb_orderList = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tb_search = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,27 +43,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cb_orderList
-            // 
-            this.cb_orderList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_orderList.FormattingEnabled = true;
-            this.cb_orderList.Items.AddRange(new object[] {
-            "Ascending",
-            "Descending"});
-            this.cb_orderList.Location = new System.Drawing.Point(452, 20);
-            this.cb_orderList.Name = "cb_orderList";
-            this.cb_orderList.Size = new System.Drawing.Size(130, 21);
-            this.cb_orderList.TabIndex = 17;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(588, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Sort";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -82,6 +60,7 @@
             this.tb_search.Name = "tb_search";
             this.tb_search.Size = new System.Drawing.Size(194, 20);
             this.tb_search.TabIndex = 14;
+            this.tb_search.TextChanged += new System.EventHandler(this.tb_search_TextChanged);
             // 
             // label1
             // 
@@ -99,6 +78,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column10,
+            this.Column8,
             this.Column6,
             this.Column1,
             this.Column2,
@@ -110,6 +90,7 @@
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView1.Size = new System.Drawing.Size(735, 398);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column4
             // 
@@ -122,6 +103,11 @@
             this.Column10.Name = "Column10";
             this.Column10.Visible = false;
             // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Nama Pelangan";
+            this.Column8.Name = "Column8";
+            // 
             // Column6
             // 
             this.Column6.HeaderText = "Mobil";
@@ -129,12 +115,12 @@
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Tanggal Rental";
+            this.Column1.HeaderText = "Pinjam";
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Tanggal Pengembaian";
+            this.Column2.HeaderText = "Pengembalian";
             this.Column2.Name = "Column2";
             // 
             // Column3
@@ -162,14 +148,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 484);
-            this.Controls.Add(this.cb_orderList);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tb_search);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Karyawan_Management_Transaksi";
             this.Text = "Karyawan_Management_Transaksi";
+            this.Load += new System.EventHandler(this.Karyawan_Management_Transaksi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,14 +162,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cb_orderList;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tb_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

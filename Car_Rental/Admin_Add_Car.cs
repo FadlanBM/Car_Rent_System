@@ -77,7 +77,7 @@ namespace Car_Rental
             car.color = tb_color.Text;
             car.year = dt_date.Value;
             car.status = status;
-            car.rental_price=tb_price.Text;
+            car.rental_price=float.Parse(tb_price.Text.Replace(",","").Replace(".",""));
             car.car_seat_id = seetValid.car_seat_id;
                 File.Copy(openFileDialog.FileName, path + imagename);
                 car.image_name=imagename;
@@ -99,7 +99,7 @@ namespace Car_Rental
                 car.color = tb_color.Text;
                 car.year = dt_date.Value;
                 car.status = status;
-                car.rental_price = tb_price.Text;
+                car.rental_price = float.Parse(tb_price.Text);   
                 car.car_seat_id = seetValid.car_seat_id;                
                 if (bt_addImage.Text!=car.image_name)
                 {                    
@@ -157,7 +157,7 @@ namespace Car_Rental
                 tb_color.Text = data.color;
                 dt_date.Text = data.year.ToString();
                 cb_status.Text =status ;
-                tb_price.Text = data.price;
+                tb_price.Text = data.price.ToString();
                 cb_kursi.Text = data.carseet;
                 imageold = data.image;
                 openFileDialog.FileName = data.image;
@@ -206,6 +206,11 @@ namespace Car_Rental
         private void tb_price_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

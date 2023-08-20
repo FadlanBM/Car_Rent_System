@@ -51,6 +51,7 @@
             this.button3.TabIndex = 40;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -86,6 +87,7 @@
             this.dt_rentalstop.Name = "dt_rentalstop";
             this.dt_rentalstop.Size = new System.Drawing.Size(273, 20);
             this.dt_rentalstop.TabIndex = 28;
+            this.dt_rentalstop.ValueChanged += new System.EventHandler(this.dt_rentalstop_ValueChanged);
             // 
             // label4
             // 
@@ -134,6 +136,7 @@
             this.cb_pelanggan.Name = "cb_pelanggan";
             this.cb_pelanggan.Size = new System.Drawing.Size(273, 21);
             this.cb_pelanggan.TabIndex = 41;
+            this.cb_pelanggan.SelectedIndexChanged += new System.EventHandler(this.cb_pelanggan_SelectedIndexChanged);
             // 
             // cb_mobile
             // 
@@ -145,6 +148,7 @@
             this.cb_mobile.Name = "cb_mobile";
             this.cb_mobile.Size = new System.Drawing.Size(273, 21);
             this.cb_mobile.TabIndex = 42;
+            this.cb_mobile.SelectedIndexChanged += new System.EventHandler(this.cb_mobile_SelectedIndexChanged);
             // 
             // dt_rentalstart
             // 
@@ -152,6 +156,7 @@
             this.dt_rentalstart.Name = "dt_rentalstart";
             this.dt_rentalstart.Size = new System.Drawing.Size(273, 20);
             this.dt_rentalstart.TabIndex = 43;
+            this.dt_rentalstart.ValueChanged += new System.EventHandler(this.dt_rentalstart_ValueChanged);
             // 
             // tb_pricerental
             // 
@@ -164,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 367);
+            this.ClientSize = new System.Drawing.Size(331, 349);
             this.Controls.Add(this.tb_pricerental);
             this.Controls.Add(this.dt_rentalstart);
             this.Controls.Add(this.cb_mobile);

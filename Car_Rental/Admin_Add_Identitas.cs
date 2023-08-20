@@ -75,5 +75,10 @@ namespace Car_Rental
         private void clear() {
             tb_identitas.Text = "";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

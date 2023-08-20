@@ -51,7 +51,7 @@ namespace Car_Rental
     #endregion
 		
 		public AppDbContextDataContext() : 
-				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString1, mappingSource)
+				base(global::Car_Rental.Properties.Settings.Default.Car_Rent_SystemConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -147,11 +147,13 @@ namespace Car_Rental
 		
 		private System.Nullable<int> _status;
 		
-		private string _rental_price;
+		private System.Nullable<double> _rental_price;
 		
 		private int _car_seat_id;
 		
 		private string _image_name;
+		
+		private EntitySet<transaction> _transactions;
 		
 		private EntityRef<carseat> _carseat;
 		
@@ -171,7 +173,7 @@ namespace Car_Rental
     partial void OnyearChanged();
     partial void OnstatusChanging(System.Nullable<int> value);
     partial void OnstatusChanged();
-    partial void Onrental_priceChanging(string value);
+    partial void Onrental_priceChanging(System.Nullable<double> value);
     partial void Onrental_priceChanged();
     partial void Oncar_seat_idChanging(int value);
     partial void Oncar_seat_idChanged();
@@ -181,6 +183,7 @@ namespace Car_Rental
 		
 		public car()
 		{
+			this._transactions = new EntitySet<transaction>(new Action<transaction>(this.attach_transactions), new Action<transaction>(this.detach_transactions));
 			this._carseat = default(EntityRef<carseat>);
 			OnCreated();
 		}
@@ -305,8 +308,8 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rental_price", DbType="VarChar(50)")]
-		public string rental_price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rental_price", DbType="Float")]
+		public System.Nullable<double> rental_price
 		{
 			get
 			{
@@ -369,6 +372,19 @@ namespace Car_Rental
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="car_transaction", Storage="_transactions", ThisKey="car_id", OtherKey="car_id")]
+		public EntitySet<transaction> transactions
+		{
+			get
+			{
+				return this._transactions;
+			}
+			set
+			{
+				this._transactions.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="carseat_car", Storage="_carseat", ThisKey="car_seat_id", OtherKey="car_seat_id", IsForeignKey=true)]
 		public carseat carseat
 		{
@@ -421,6 +437,18 @@ namespace Car_Rental
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_transactions(transaction entity)
+		{
+			this.SendPropertyChanging();
+			entity.car = this;
+		}
+		
+		private void detach_transactions(transaction entity)
+		{
+			this.SendPropertyChanging();
+			entity.car = null;
 		}
 	}
 	
@@ -795,7 +823,7 @@ namespace Car_Rental
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama_customer", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama_customer", DbType="VarChar(50)")]
 		public string nama_customer
 		{
 			get
@@ -1133,6 +1161,8 @@ namespace Car_Rental
 		
 		private double _total_price;
 		
+		private EntityRef<car> _car;
+		
 		private EntityRef<customer> _customer;
 		
 		private EntityRef<user> _user;
@@ -1159,6 +1189,7 @@ namespace Car_Rental
 		
 		public transaction()
 		{
+			this._car = default(EntityRef<car>);
 			this._customer = default(EntityRef<customer>);
 			this._user = default(EntityRef<user>);
 			OnCreated();
@@ -1243,6 +1274,10 @@ namespace Car_Rental
 			{
 				if ((this._car_id != value))
 				{
+					if (this._car.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Oncar_idChanging(value);
 					this.SendPropertyChanging();
 					this._car_id = value;
@@ -1308,6 +1343,40 @@ namespace Car_Rental
 					this._total_price = value;
 					this.SendPropertyChanged("total_price");
 					this.Ontotal_priceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="car_transaction", Storage="_car", ThisKey="car_id", OtherKey="car_id", IsForeignKey=true)]
+		public car car
+		{
+			get
+			{
+				return this._car.Entity;
+			}
+			set
+			{
+				car previousValue = this._car.Entity;
+				if (((previousValue != value) 
+							|| (this._car.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._car.Entity = null;
+						previousValue.transactions.Remove(this);
+					}
+					this._car.Entity = value;
+					if ((value != null))
+					{
+						value.transactions.Add(this);
+						this._car_id = value.car_id;
+					}
+					else
+					{
+						this._car_id = default(int);
+					}
+					this.SendPropertyChanged("car");
 				}
 			}
 		}
